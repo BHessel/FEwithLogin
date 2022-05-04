@@ -4,23 +4,24 @@ import {
   Routes,
   Route
 } from 'react-router-dom'
+import axios from 'axios';
 import Home from './Components/Home.js'
 import VideoContainer from './Components/VideoContainer.js'
-import axios from 'axios';
+import VidPlayer from './Presentational/Video'
+import Banner from './Presentational/Banner'
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
 // import Favorites from './Containers/Favorites';
 // import NotFound from './Presentational/NotFound';
-// import Banner from './Presentational/Banner'
 // import Matches from './Containers/Matches';
 // import { fetchFavorites } from './Containers/import';
-// import VidPlayer from './Presentational/VidPlayer'
 
 const App = () => {
 
   const [user, setUser] = useState({})
   const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in')
+  const [allUsers, setAllUsers] = useState([]);
 
   const handleLogin = (data) => {
     setLoggedInStatus('logged_in')
@@ -32,7 +33,7 @@ const App = () => {
     setUser({})
   }
 
-  
+  //check Login Status
   useEffect(() => {
     const checkLoginStatus = () => {
       axios.get('http://localhost:3000/logged_in',
@@ -54,13 +55,28 @@ const App = () => {
     return () => {
       checkLoginStatus()
     }
-  }, [])
+  }, [loggedInStatus])
+
+  //get all Users
+  useEffect(() => {
+    const getAllUsers = async () => {
+      let allUsersList = await axios.get('http://localhost:3000/users')
+      console.log('allUsers response is:', allUsersList)
+      setAllUsers(allUsersList.data)
+  }
+    return () => {
+      getAllUsers()
+    };
+  }, []);
 
 
   return (
     <div className="App">
       <div className='main-grid'>
-        {/* <Banner /> */}
+        <Banner 
+          user={user}
+          handleLogout={handleLogout}
+        />
       </div>
 
       <div className='body-container'>
@@ -85,6 +101,8 @@ const App = () => {
             element={
               <VideoContainer
                 loggedInStatus={loggedInStatus}
+                allUsers={allUsers}
+                user={user}
               />
             }
           />
@@ -95,24 +113,24 @@ const App = () => {
               <Favorites
                 
               />} 
-          />
+          /> */}
 
-          <Route
+          {/* <Route
             path={'/Matches'}
             element={
               <Matches />
             } 
-          /> */}
+          />  */}
           
           {/* routes to page w/ single video @ full size */}
-          {/* <Route
+          <Route
             path={'/VidPlayer'}
             element={
               <VidPlayer />
             } 
           />
 
-          <Route
+          {/* <Route
             component={NotFound}
           /> */}
 
