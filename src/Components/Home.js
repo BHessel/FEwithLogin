@@ -1,5 +1,5 @@
 import React from 'react';
-// import Registration from './auth/Registration';
+import Registration from './auth/Registration';
 // import Login from './auth/Login'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
@@ -29,10 +29,10 @@ const Home = ({ loggedInStatus, handleLogin, handleLogout }) => {
         <div>
             <h1>Home</h1>
             <h2>Status: {loggedInStatus}</h2>
-            {/* <Registration 
+            <Registration 
                 handleSuccessfulAuth={handleSuccessfulAuth}    
             />
-            <Login 
+            {/* <Login 
                 handleSuccessfulAuth={handleSuccessfulAuth}
             /> */}
             <button onClick={handleLogoutClick}>
