@@ -6,7 +6,7 @@ import {
 } from 'react-router-dom'
 import Home from './Components/Home.js'
 import VideoContainer from './Components/VideoContainer.js'
-// import axios from 'axios';
+import axios from 'axios';
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
@@ -33,28 +33,28 @@ const App = () => {
   }
 
   
-  // useEffect(() => {
-  //   const checkLoginStatus = () => {
-  //     axios.get('http://localhost:3000/logged_in',
-  //       { withCredentials: true })
-  //       .then(response => {
-  //         console.log('logged in?:', response)
-  //         if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
-  //           setLoggedInStatus('logged_in')
-  //           setUser(response.data.user)
-  //       } else if (!response.data.logged_in && loggedInStatus === 'logged_in') {
-  //         setLoggedInStatus('not_logged_in')
-  //         setUser({})
-  //       }
-  //     })
-  //       .catch(error => {
-  //         console.log('check login error?', error)
-  //       })
-  //   }
-  //   return () => {
-  //     checkLoginStatus()
-  //   }
-  // }, [])
+  useEffect(() => {
+    const checkLoginStatus = () => {
+      axios.get('http://localhost:3000/logged_in',
+        { withCredentials: true })
+        .then(response => {
+          console.log('logged in?:', response)
+          if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
+            setLoggedInStatus('logged_in')
+            setUser(response.data.user)
+        } else if (!response.data.logged_in && loggedInStatus === 'logged_in') {
+          setLoggedInStatus('not_logged_in')
+          setUser({})
+        }
+      })
+        .catch(error => {
+          console.log('check login error?', error)
+        })
+    }
+    return () => {
+      checkLoginStatus()
+    }
+  }, [])
 
 
   return (

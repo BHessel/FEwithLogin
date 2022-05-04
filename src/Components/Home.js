@@ -1,6 +1,6 @@
 import React from 'react';
 import Registration from './auth/Registration';
-// import Login from './auth/Login'
+import Login from './auth/Login'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
@@ -32,9 +32,9 @@ const Home = ({ loggedInStatus, handleLogin, handleLogout }) => {
             <Registration 
                 handleSuccessfulAuth={handleSuccessfulAuth}    
             />
-            {/* <Login 
+            <Login 
                 handleSuccessfulAuth={handleSuccessfulAuth}
-            /> */}
+            />
             <button onClick={handleLogoutClick}>
                 Logout
             </button>
