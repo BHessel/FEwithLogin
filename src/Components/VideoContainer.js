@@ -30,6 +30,7 @@ const VideoContainer = ({ loggedInStatus }) => {
             <div className='video-container'>
                 {allVideos.map((vid) =>
                     <VideoCard
+                        key={vid.id}
                         video={vid}
                     />
                 )}

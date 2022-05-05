@@ -6,7 +6,7 @@ const Videocard = (props) => {
     // console.log(video)
 
     return (
-        <div className='card-container'>
+        <div className='card-container' key={video.id}>
             <div className='vid-card-img'>
                 <img src={video.thumbnail} />
             </div>
