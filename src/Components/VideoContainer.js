@@ -47,8 +47,11 @@ const VideoContainer = ( props ) => {
     
     return (
         <div>
+        {/* make a field for intro */}
             <h1>VideoContainer</h1>
             <h1>Status: {loggedInStatus} </h1>
+        {/* make a field for friend-search (maybe even make own component?) */}
+        {/* make a field to link to favorites */}
             <div className='video-container'>
                 {allVideos.map((vid) =>
                     <VideoCard
