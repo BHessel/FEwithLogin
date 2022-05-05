@@ -8,11 +8,11 @@ import Home from './Components/Home.js'
 import VideoContainer from './Components/VideoContainer.js'
 import axios from 'axios';
 import Favorites from './Components/Favorites';
+import Banner from './Presentational/Banner'
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
 // import NotFound from './Presentational/NotFound';
-// import Banner from './Presentational/Banner'
 // import Matches from './Containers/Matches';
 // import { fetchFavorites } from './Containers/import';
 // import VidPlayer from './Presentational/VidPlayer'
@@ -60,7 +60,11 @@ const App = () => {
   return (
     <div className="App">
       <div className='main-grid'>
-        {/* <Banner /> */}
+        <Banner
+          user={user}
+          setUser={setUser}
+          handleLogout={handleLogout}
+        />
       </div>
 
       <div className='body-container'>

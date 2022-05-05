@@ -7,8 +7,6 @@ const Favorites = (props) => {
     const { user } = props
 
     const [allFavorites, setAllFavorites] = useState([]);
-    //remainder of useState's here are for userSearch, do last
-    //make state for Favorites here too?
 
     const favoritesURL = 'http://localhost:3000/favorites'
     
@@ -53,7 +51,6 @@ const Favorites = (props) => {
         </div>
 
         <div className='video-container'>
-            {/* map each currentUserFav into a FavCard, set that */}
             {currentUserFavs.map((fav) =>
                 <FavCard
                     key={fav.id}
