@@ -1,9 +1,8 @@
-import { computeHeadingLevel } from '@testing-library/react';
 import React from 'react';
 
 const Favcard = (props) => {
 
-    const { favorite } = props
+    const { favorite, removeFromFavorites } = props
     
     return (
         <div>
@@ -20,7 +19,7 @@ const Favcard = (props) => {
             <div className="fav-card-buttons">
                 <button className='fav-card-btn' onClick={() => console.log('play now')}>Play Now</button>
                 
-                <button className='fav-card-btn' onClick={() => console.log('removed')}>Remove from Favorites
+                <button className='fav-card-btn' onClick={() => removeFromFavorites(favorite)}>Remove from Favorites
                     </button>
                 
             </div> 

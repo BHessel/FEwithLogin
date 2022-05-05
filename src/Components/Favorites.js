@@ -32,6 +32,17 @@ const Favorites = (props) => {
     const currentUserFavs = allFavorites.filter(favorite => favorite.user_id === user.id)
     
     //create removeFromFavs
+    const removeFromFavorites = (favorite) => {
+        let favId = favorite.id
+      
+        //DELETE rqst to rails backend
+        fetch(`${favoritesURL}/${favId}`, {
+          method: "DELETE",
+          header:{'Accept':'application/json'},
+          'Content-Type':'application/json'
+         })
+        window.location.reload()
+    }
 
     return (
         <>
@@ -47,6 +58,7 @@ const Favorites = (props) => {
                 <FavCard
                     key={fav.id}
                     favorite={fav}
+                    removeFromFavorites={removeFromFavorites}
                 />
             )}
         </div>
