@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 
 const Videocard = (props) => {
 
-    const {video} = props
+    const { video, addToFavorites } = props
     // console.log(video)
 
     return (
@@ -20,7 +20,7 @@ const Videocard = (props) => {
                     <button className='vid-card-btn'>
                         Play in Full Size
                     </button>
-                    <button className='vid-card-btn'>
+                    <button className='vid-card-btn' onClick={() => addToFavorites(video)}>
                         Add to Favorites
                     </button>
                 </div>

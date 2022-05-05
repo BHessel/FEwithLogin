@@ -85,6 +85,7 @@ const App = () => {
             element={
               <VideoContainer
                 loggedInStatus={loggedInStatus}
+                user={user}
               />
             }
           />
