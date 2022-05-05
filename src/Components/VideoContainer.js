@@ -7,7 +7,6 @@ const VideoContainer = ( props ) => {
 
     const { loggedInStatus, user } = props
 
-
     const [allVideos, setAllVideos] = useState([]);
     //remainder of useState's here are for userSearch, do last
     //make state for Favorites here too?

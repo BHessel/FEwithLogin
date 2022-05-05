@@ -4,8 +4,9 @@ import Login from './auth/Login'
 import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
-const Home = ({ loggedInStatus, handleLogin, handleLogout }) => {
+const Home = (props) => {
 
+    const { loggedInStatus, handleLogin, handleLogout } = props
     let navigate = useNavigate()
 
     const handleSuccessfulAuth = (data) => {
