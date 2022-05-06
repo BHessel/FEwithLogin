@@ -1,14 +1,20 @@
 import React, { useState } from 'react';
+import VideoPlayer from './Video'
 
 const Videocard = (props) => {
 
     const { video, addToFavorites } = props
-    // console.log(video)
+    console.log(video)
 
+    
     return (
         <div className='card-container' key={video.id}>
             <div className='vid-card-img'>
-                <img src={video.thumbnail} />
+                {/* <img src={video.thumbnail} /> */}
+                    <VideoPlayer
+                        videoURL={video.url}
+                        videoThumb={video.thumbnail}
+                    />
             </div>
 
             <div className='card-content'>
