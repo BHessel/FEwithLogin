@@ -42,7 +42,7 @@ const Login = ({ handleSuccessfulAuth }) => {
   };
 
   return (
-    <div className="login-form right-side">
+    <div>
       <form onSubmit={handleSubmit}>
       <h3>Login:</h3>
 

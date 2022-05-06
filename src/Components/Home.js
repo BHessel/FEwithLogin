@@ -28,17 +28,17 @@ const Home = (props) => {
 
     return (
         <div>
-            <h1>Home</h1>
-            <h2>Status: {loggedInStatus}</h2>
-            <Registration 
-                handleSuccessfulAuth={handleSuccessfulAuth}    
-            />
-            <Login 
-                handleSuccessfulAuth={handleSuccessfulAuth}
-            />
-            {/* <button onClick={handleLogoutClick}>
-                Logout
-            </button> */}
+            <h2>loggedInStatus: {loggedInStatus}</h2>
+            <div className="create-user left-side">
+                <Registration 
+                    handleSuccessfulAuth={handleSuccessfulAuth}    
+                />
+            </div>
+            <div className="login-form right-side">
+                <Login 
+                    handleSuccessfulAuth={handleSuccessfulAuth}
+                />
+            </div>
         </div>
     );
 }

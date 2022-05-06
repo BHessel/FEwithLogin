@@ -10,7 +10,6 @@ const Banner = (props) => {
     const handleLogoutClick = () => {
         axios.delete('http://localhost:3000/logout', { withCredentials: true })
         .then(response => {
-            // console.log('handleLogoutResponse', response)
             handleLogout()
         })
         .catch(error => {

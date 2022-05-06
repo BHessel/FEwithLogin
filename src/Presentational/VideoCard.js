@@ -20,6 +20,7 @@ const Videocard = (props) => {
                     <button className='vid-card-btn'>
                         Play in Full Size
                     </button>
+
                     <button className='vid-card-btn' onClick={() => addToFavorites(video)}>
                         Add to Favorites
                     </button>

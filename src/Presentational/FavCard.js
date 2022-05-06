@@ -17,10 +17,13 @@ const Favcard = (props) => {
                 </div>
             
             <div className="fav-card-buttons">
-                <button className='fav-card-btn' onClick={() => console.log('play now')}>Play Now</button>
+                <button className='fav-card-btn' onClick={() => console.log('play now')}>
+                    Play Now
+                </button>
                 
-                <button className='fav-card-btn' onClick={() => removeFromFavorites(favorite)}>Remove from Favorites
-                    </button>
+                <button className='fav-card-btn' onClick={() => removeFromFavorites(favorite)}>
+                    Remove from Favorites
+                </button>
                 
             </div> 
             </div>
