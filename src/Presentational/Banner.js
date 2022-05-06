@@ -1,10 +1,22 @@
 import React from 'react';
 import logo from '../Images/netflixMMlogoSMALL.png'
+import axios from 'axios';
 
 
 const Banner = (props) => {
 
     const { user, setUser, handleLogout } = props
+
+    const handleLogoutClick = () => {
+        axios.delete('http://localhost:3000/logout', { withCredentials: true })
+        .then(response => {
+            // console.log('handleLogoutResponse', response)
+            handleLogout()
+        })
+        .catch(error => {
+            console.log('logout error?', error)
+        })
+    }
 
     return (
         <div className='banner-box'>
@@ -15,7 +27,7 @@ const Banner = (props) => {
             
             <div className='logout'>
                 {user ? (
-                    <button className='logout-btn' onClick={handleLogout}>
+                    <button className='logout-btn' onClick={handleLogoutClick}>
                         Logout
                     </button>
                 ) : (

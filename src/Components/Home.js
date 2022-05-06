@@ -1,30 +1,30 @@
 import React from 'react';
 import Registration from './auth/Registration';
 import Login from './auth/Login'
-import { useNavigate } from 'react-router-dom'
+// import { useNavigate } from 'react-router-dom'
 import axios from 'axios';
 
 const Home = (props) => {
 
     const { loggedInStatus, handleLogin, handleLogout } = props
-    let navigate = useNavigate()
+    // let navigate = useNavigate()
 
     const handleSuccessfulAuth = (data) => {
         // console.log(data)
         handleLogin(data)
-        navigate('/VideoContainer')
+        // navigate('/VideoContainer')
     }
 
-    const handleLogoutClick = () => {
-        axios.delete('http://localhost:3000/logout', { withCredentials: true })
-        .then(response => {
-            // console.log('handleLogoutResponse', response)
-            handleLogout()
-        })
-        .catch(error => {
-            console.log('logout error?', error)
-        })
-    }
+    // const handleLogoutClick = () => {
+    //     axios.delete('http://localhost:3000/logout', { withCredentials: true })
+    //     .then(response => {
+    //         // console.log('handleLogoutResponse', response)
+    //         handleLogout()
+    //     })
+    //     .catch(error => {
+    //         console.log('logout error?', error)
+    //     })
+    // }
 
     return (
         <div>
@@ -36,9 +36,9 @@ const Home = (props) => {
             <Login 
                 handleSuccessfulAuth={handleSuccessfulAuth}
             />
-            <button onClick={handleLogoutClick}>
+            {/* <button onClick={handleLogoutClick}>
                 Logout
-            </button>
+            </button> */}
         </div>
     );
 }
