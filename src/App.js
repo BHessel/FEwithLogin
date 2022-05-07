@@ -11,13 +11,13 @@ import VideoContainer from './Components/VideoContainer.js'
 import axios from 'axios';
 import Favorites from './Components/Favorites';
 import Banner from './Presentational/Banner'
+import VidPlayer from './Presentational/VidPlayer'
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
 // import NotFound from './Presentational/NotFound';
 // import Matches from './Containers/Matches';
 // import { fetchFavorites } from './Containers/import';
-// import VidPlayer from './Presentational/VidPlayer'
 
 const App = () => {
 
@@ -97,9 +97,10 @@ const App = () => {
               <VideoContainer
                 loggedInStatus={loggedInStatus}
                 user={user}
-              />
-            }
-          />
+              />}>
+            <Route path=':VidPlayer' element={<VidPlayer />} />
+
+          </Route>
 
           <Route
             path={'/Favorites'}
@@ -117,14 +118,14 @@ const App = () => {
           /> */}
           
           {/* routes to page w/ single video @ full size */}
-          {/* <Route
+          <Route
             path={'/VidPlayer'}
             element={
               <VidPlayer />
             } 
           />
 
-          <Route
+          {/* <Route
             component={NotFound}
           /> */}
 

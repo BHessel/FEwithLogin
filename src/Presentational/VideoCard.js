@@ -1,20 +1,28 @@
 import React, { useState } from 'react';
-import VideoPlayer from './Video'
+import { useNavigate } from 'react-router-dom';
+// import VideoPlayer from './Video'
 
 const Videocard = (props) => {
 
     const { video, addToFavorites } = props
-    console.log(video)
+    // console.log(video)
 
+    let navigate = useNavigate()
+
+    const goToTheatre = (video) => {
+        console.log(video)
+        navigate('/VidPlayer', { state: {video} })
+    }
     
     return (
+
         <div className='card-container' key={video.id}>
             <div className='vid-card-img'>
-                {/* <img src={video.thumbnail} /> */}
-                    <VideoPlayer
+                <img src={video.thumbnail} />
+                    {/* <VideoPlayer
                         videoURL={video.url}
                         videoThumb={video.thumbnail}
-                    />
+                    /> */}
             </div>
 
             <div className='card-content'>
@@ -23,8 +31,8 @@ const Videocard = (props) => {
                 </div>
 
                 <div className='vid-card-buttons'>
-                    <button className='vid-card-btn'>
-                        Play in Full Size
+                    <button className='vid-card-btn' onClick={() => goToTheatre(video)}>
+                            Play Trailer
                     </button>
 
                     <button className='vid-card-btn' onClick={() => addToFavorites(video)}>
