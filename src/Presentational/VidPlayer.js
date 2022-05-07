@@ -2,7 +2,7 @@ import React from 'react';
 import { useLocation } from "react-router-dom"
 import YouTube from 'react-youtube';
 
-const Vidplayer = () => {
+const VidPlayer = () => {
 
     const location = useLocation()
     console.log(location)
@@ -53,4 +53,4 @@ const Vidplayer = () => {
   )
 }
 
-export default Vidplayer;
+export default VidPlayer;

@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-// import VideoPlayer from './Video'
+import VideoPlayer from './Video'
 
-const Videocard = (props) => {
+const VideoCard = (props) => {
 
     const { video, addToFavorites } = props
     // console.log(video)
 
     let navigate = useNavigate()
-
-    const goToTheatre = (video) => {
-        console.log(video)
-        navigate('/VidPlayer', { state: {video} })
-    }
     
     return (
 
@@ -31,7 +26,11 @@ const Videocard = (props) => {
                 </div>
 
                 <div className='vid-card-buttons'>
-                    <button className='vid-card-btn' onClick={() => goToTheatre(video)}>
+                    <button className='vid-card-btn' onClick={() => {
+                        navigate('/video',
+                            {state:{video: video}
+                        })
+                    }}>
                             Play Trailer
                     </button>
 
@@ -44,4 +43,4 @@ const Videocard = (props) => {
     );
 }
 
-export default Videocard;
+export default VideoCard;

@@ -11,7 +11,8 @@ import VideoContainer from './Components/VideoContainer.js'
 import axios from 'axios';
 import Favorites from './Components/Favorites';
 import Banner from './Presentational/Banner'
-import VidPlayer from './Presentational/VidPlayer'
+// import VidPlayer from './Presentational/VidPlayer'
+import Video from './Presentational/Video'
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
@@ -97,9 +98,8 @@ const App = () => {
               <VideoContainer
                 loggedInStatus={loggedInStatus}
                 user={user}
-              />}>
-            <Route path=':VidPlayer' element={<VidPlayer />} />
-
+              />
+            }>
           </Route>
 
           <Route
@@ -119,9 +119,9 @@ const App = () => {
           
           {/* routes to page w/ single video @ full size */}
           <Route
-            path={'/VidPlayer'}
+            path={'/video'}
             element={
-              <VidPlayer />
+              <Video />
             } 
           />
 
