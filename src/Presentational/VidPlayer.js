@@ -1,6 +1,5 @@
 import React from 'react';
 import { useLocation } from "react-router-dom"
-// import YouTube from 'react-youtube'
 import YouTube from 'react-youtube';
 
 const Vidplayer = () => {
@@ -15,7 +14,7 @@ const Vidplayer = () => {
     const onPlayerReady = (event) => {
         // access to player in all event handlers via event.target
         console.log(event)
-        event.target.pauseVideo();
+        // event.target.pauseVideo();
     }
  
     const opts = {
