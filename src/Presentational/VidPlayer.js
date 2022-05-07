@@ -1,6 +1,7 @@
 import React from 'react';
 import { useLocation } from "react-router-dom"
-import YouTube from 'react-youtube'
+// import YouTube from 'react-youtube'
+import YouTube from 'react-youtube';
 
 const Vidplayer = () => {
 
@@ -9,23 +10,28 @@ const Vidplayer = () => {
     
 
     const videoId = location.state.video.thumbnail.split('/')[4]
+    console.log('videoId', videoId)
 
+    const onPlayerReady = (event) => {
+        // access to player in all event handlers via event.target
+        console.log(event)
+        event.target.pauseVideo();
+    }
+ 
     const opts = {
         height: '480',
         width: '854',
         playerVars: {
           // https://developers.google.com/youtube/player_parameters
-          autoplay: 1,
+          autoplay: 1
         },
       };
 
-    
-
   return (
-    <>
+      <>
         <div className='background-gradient'>
             <div className='full-vid-player'>
-                <YouTube videoId={videoId} opts={opts} iframeClassName='player'/>
+                <YouTube videoId={videoId} opts={opts} className='player' onReady={(event) => onPlayerReady(event)} iframeClassName='player'/>
             </div>
 
             <div className='video-info-card'>
