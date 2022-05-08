@@ -9,6 +9,7 @@ const VideoContainer = ( props ) => {
     const { loggedInStatus, user } = props
 
     const [allVideos, setAllVideos] = useState([]);
+    const [allUsers, setAllUsers ] = useState([])
     const [userSearch, setUserSearch] = useState('');
     const [foundUser, setFoundUser] = useState([]);
     const userSearchRef = useRef()
@@ -16,19 +17,30 @@ const VideoContainer = ( props ) => {
     //make state for Favorites here too?
 
     const videoURL = 'http://localhost:3000/videos'
+    const allUsersURL = 'http://localhost:3000/users'
     
-    //getAllVideos
+    
+    //getAllVideos, getAllUsers on page load
     useEffect(() => {
         const getAllVideos = () => {
-        axios.get(videoURL)
+            axios.get(videoURL)
         .then((response) => {
             const allVids = response.data
             setAllVideos(allVids)
         })
         .catch(error => console.log('Error:', error))
-    }
+        }
+        const getAllUsers = () => {
+            axios.get(allUsersURL)
+            .then((response) => {
+                const allUserData = response.data
+                setAllUsers(allUserData)
+        })
+            .catch(error => console.log('userError', error))
+        }
         return () => {
             getAllVideos()
+            getAllUsers()
         };
     }, []);
 
