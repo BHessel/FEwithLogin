@@ -147,6 +147,15 @@ code {
   border: none;
 }
 
+.vid-card-btn:hover {
+  background-color: rgba(201, 201, 201, 0.641);
+  transition: 0.5s;
+}
+
+.fav-card-btn:hover {
+  background-color: rgba(201, 201, 201, 0.641);
+  transition: 0.5s;
+}
 
 
 .fav-card-btn {

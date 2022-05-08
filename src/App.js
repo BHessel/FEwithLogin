@@ -14,6 +14,7 @@ import Banner from './Presentational/Banner'
 // import VidPlayer from './Presentational/VidPlayer'
 import Video from './Presentational/Video'
 import Matches from './Components/Matches';
+import FavsVideo from './Presentational/FavsVideo';
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
@@ -111,9 +112,6 @@ const App = () => {
         <Routes>
           
           <Route
-          //Home is for login/registration
-          //apply boolean, error right now is that if I log in it routes me to /videocontainer, but if I hit back I can be on home and still be logged in.
-          //if I'm on Home.js AND logged_in === true, navigate(/VideoContainer)
             path={"/"}
             element={ !user.id ?
               <Home
@@ -161,6 +159,13 @@ const App = () => {
             path={'/video'}
             element={
               <Video />
+            } 
+          />
+
+          <Route
+            path={'/favsvideo'}
+            element={
+              <FavsVideo />
             } 
           />
 

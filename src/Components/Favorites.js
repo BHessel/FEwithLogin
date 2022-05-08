@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FavCard from '../Presentational/FavCard'
 
@@ -8,6 +9,7 @@ const Favorites = (props) => {
 
     const [allFavorites, setAllFavorites] = useState([]);
 
+    let navigate = useNavigate()
     const favoritesURL = 'http://localhost:3000/favorites'
     
     //getAllFavorites
@@ -44,8 +46,10 @@ const Favorites = (props) => {
 
     return (
         <>
-        <div>
-            <button>
+        <div className='favs-btn bg-color'>
+            <button className='favs-btn-design' onClick={() => {
+                    navigate('/VideoContainer')
+                }}>
                 Return Home
             </button>
         </div>

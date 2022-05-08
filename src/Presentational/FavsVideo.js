@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import ReactPlayer from "react-player/youtube";
 import { useLocation } from 'react-router-dom'
 
-const Video = () => {
+const FavsVideo = () => {
 
     const location = useLocation()
-    const videoInfo = location.state.video
-    // const videoKey = location.state.video.thumbnail.split('/')[4]
-    // console.log(videoKey)
-    const videoUrlArray = [videoInfo.url]
+    const favInfo = location.state.favorite.video
+    // const favKey = location.state.favorite.video.thumbnail.split('/')[4]
+    console.log(location)
+    const favUrlArray = [favInfo.url]
     // console.log(videoUrlArray)
     
 
@@ -31,15 +31,15 @@ const Video = () => {
                     playing={play}
                     // config={{ file: { forceHLS: true } }}
                     controls={true}
-                    light={videoInfo.thumbnail}
-                    url={videoUrlArray}
+                    // light={favInfo.thumbnail}
+                    url={favUrlArray}
                     className='react-player'
                 />
             </div>
 
             <div className='video-info-card'>
                 <h2 className='info-font'>
-                    {videoInfo.title}
+                    {/* {videoInfo.title} */}
                 </h2>
                 <div className='info-font'>
                     <div className='flex-info-font'>
@@ -56,4 +56,4 @@ const Video = () => {
     );
 }
 
-export default Video;
+export default FavsVideo;

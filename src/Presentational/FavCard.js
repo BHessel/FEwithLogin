@@ -1,9 +1,20 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const Favcard = (props) => {
 
     const { favorite, removeFromFavorites } = props
     
+    let navigate = useNavigate()
+
+    const navToTrailer = (favorite) => {
+        console.log(favorite)
+        // return <Navigate to='/video'/>
+        navigate('/favsvideo',
+            {state:{favorite: favorite}}
+    )
+    }
+
     return (
         <div>
             <div className="card-container-favs" key={favorite.id}>
@@ -17,8 +28,9 @@ const Favcard = (props) => {
                 </div>
             
             <div className="fav-card-buttons">
-                <button className='fav-card-btn' onClick={() => console.log('play now')}>
-                    Play Now
+                <button className='fav-card-btn' onClick={() => navToTrailer(favorite)
+                }>
+                    Play Trailer
                 </button>
                 
                 <button className='fav-card-btn' onClick={() => removeFromFavorites(favorite)}>
