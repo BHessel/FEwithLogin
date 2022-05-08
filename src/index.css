@@ -536,15 +536,14 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: 10px;
-  width: 50%;
+  width: 60%;
 }
 
 .user-card-buttons {
   display: flex;
   justify-content: space-between;
-  width: 60%;
+  padding: 5px;
 }
 
 .user-card-buttons button {
