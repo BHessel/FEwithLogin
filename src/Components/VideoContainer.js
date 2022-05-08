@@ -71,16 +71,12 @@ const VideoContainer = ( props ) => {
         let findUser = allUsers.filter(user => user.email.toLowerCase() === userSearch.toLowerCase())
         setFoundUser(findUser)
     }
-    
+
+
     return (
         <>
             <h1 className='video-header bg-color'>Welcome to Netflix MovieMatcher</h1>
             <p className='video-subheader bg-color'>Scroll or search for shows and movies to watch each trailer. If you like it, click "Add to Favorites," and then connect with friends to see where your TV interests match! </p>
-
-
-        {/* make a field for intro */}
-            {/* <h1>VideoContainer</h1>
-            <h1>Status: {loggedInStatus} </h1> */}
 
             {/* in final form, maybe make this its own userSearch component? */}
             <div className='friend-search bg-color'>
@@ -103,14 +99,15 @@ const VideoContainer = ( props ) => {
             <div className="show-friend-search bg-color">
                 {
                     foundUser.length > 0 ?
-                    <UserCard foundUser={foundUser} user={user} /> :
-                    <div className='friend-search-2'></div>
-                }                  
-                {/* </div> close vid-grid-top */}
-            
+                    <UserCard
+                        foundUser={foundUser}
+                        user={user}
+                    /> :
+                    <div className='friend-search-2'>
+                        Try again! User not found ¯\_(ツ)_/¯
+                    </div>
+                }
             </div>
-        {/* make a field for friend-search (maybe even make own component?) */}
-        {/* make a field to link to favorites */}
 
             <div className='favs-btn bg-color'>
                 <button className='favs-btn-design'>

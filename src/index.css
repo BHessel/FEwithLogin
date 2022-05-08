@@ -336,6 +336,7 @@ button a:focus {
   justify-content: center;
   align-items: center;
   padding: 10px 0px 0px 0px;
+  font-weight: bold;
 }
 
 .friend-search-form {
