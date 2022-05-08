@@ -79,7 +79,6 @@ const VideoContainer = ( props ) => {
                         user={user}
                     /> :
                     <div className='friend-search-2'>
-                        Try again! User not found ¯\_(ツ)_/¯
                     </div>
                 }
             </div>
