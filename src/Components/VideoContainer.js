@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useRef } from 'react';
-import axios from 'axios';
+import React, { useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
 import VideoCard from '../Presentational/VideoCard'
 // import { Link } from 'react-router-dom';
 import UserCard from '../Presentational/UserCard'
@@ -8,15 +8,10 @@ const VideoContainer = ( props ) => {
 
     const { loggedInStatus, user, allUsers, allVideos } = props
 
-    // const [allVideos, setAllVideos] = useState([]);
-    // const [allUsers, setAllUsers ] = useState([])
     const [userSearch, setUserSearch] = useState('');
     const [foundUser, setFoundUser] = useState([]);
     const userSearchRef = useRef()
-    //remainder of useState's here are for userSearch, do last
-    //make state for Favorites here too?
-
-
+    let navigate = useNavigate()
 
     const addToFavorites = (video) => {
         
@@ -84,7 +79,9 @@ const VideoContainer = ( props ) => {
             </div>
 
             <div className='favs-btn bg-color'>
-                <button className='favs-btn-design'>
+                <button className='favs-btn-design' onClick={() => {
+                    navigate('/Favorites')
+                }}>
                     See My Favorites
                 </button>
             </div>

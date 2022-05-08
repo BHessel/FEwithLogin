@@ -295,11 +295,11 @@ code {
   color: whitesmoke;
 }
 
-.favs-btn-design a:visited {
+.favs-btn-design:visited {
   color: whitesmoke;
 }
 
-.favs-btn-design a:hover {
+.favs-btn-design:hover {
   text-decoration: none; color: red; transition: .5s;
 }
 
