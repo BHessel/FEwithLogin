@@ -31,7 +31,7 @@ const Video = () => {
                     playing={play}
                     // config={{ file: { forceHLS: true } }}
                     controls={true}
-                    light={videoInfo.thumbnail}
+                    // light={videoInfo.thumbnail}
                     url={videoUrlArray}
                     className='react-player'
                 />
