@@ -62,14 +62,14 @@ const VideoContainer = ( props ) => {
 
     const handleSearch = () => {
         let searchValue = userSearchRef.current.value
-        console.log('this is the searchvalue', searchValue)
+        // console.log('this is the searchvalue', searchValue)
         setUserSearch(searchValue)
     }
 
     const findFriend = (e) => {
         e.preventDefault()  //cancels an error in the terminal that said "form submission cancelled because the form is not connected"
-        // setFoundUser(findUser)
-        // let findUser = allUsers.filter(user => user.username.toLowerCase() === userSearch.toLowerCase())
+        let findUser = allUsers.filter(user => user.email.toLowerCase() === userSearch.toLowerCase())
+        setFoundUser(findUser)
     }
     
     return (
