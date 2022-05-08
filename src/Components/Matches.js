@@ -19,10 +19,52 @@ const Matches = (props) => {
      const sortFoundUserFavs = allFavs.filter(favorite => favorite.user_id === foundUser.id)
      console.log('sortMatch', sortFoundUserFavs)
 
+     //compare both user's favorites to show matches
+    const compare = (sortUserFavs, sortFoundUserFavs) => {
+        let matchArray = []
+        sortUserFavs.forEach((fav) => sortFoundUserFavs.forEach((favorite) => {
+            if (fav.video_id === favorite.video_id){
+                matchArray.push(fav.video.title)
+            }
+        }))
+        return matchArray
+    }
+
+    const showAllMatches = compare(sortUserFavs, sortFoundUserFavs)
+    const showUniqueMatches = [...new Set(showAllMatches)]
+
+    console.log(showAllMatches)
+    console.log(showUniqueMatches)
+
     return (
-        <div>
-            <h1>You're at Matches!</h1>
-        </div>
+        <>
+            <div className='bg-flex-wrapper'>
+                <div className='match-favs'>
+                    <h2>You're both interested in...</h2>
+                    {showAllMatches.map((match) => 
+                        <li>{match}</li>
+                    )}
+                </div>
+
+                <div className='return-home'>
+                    <button></button>
+                </div>
+
+                <div className='my-favs'>
+                    <h2>My Favorites</h2>
+                    {sortUserFavs.map((favorite) =>
+                        <li>{favorite.video.title}</li>
+                    )}
+                </div>
+
+                <div className='their-favs'>
+                    <h2>MATCHES Favorites</h2>      
+                    {sortFoundUserFavs.map((favorite) =>
+                        <li>{favorite.video.title}</li>
+                    )}
+                </div>
+            </div>
+        </>
     );
 }
 
