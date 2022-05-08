@@ -100,6 +100,7 @@ const VideoContainer = ( props ) => {
                 {
                     foundUser.length > 0 ?
                     <UserCard
+                        allVideos={allVideos}
                         foundUser={foundUser}
                         user={user}
                     /> :

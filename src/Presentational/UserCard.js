@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const Usercard = (props) => {
     
-    const { foundUser, user } = props
+    const { foundUser, user, allVideos } = props
 
     const [ allFollows, setAllFollows ] = useState([])
     const [ currentFollow, setCurrentFollow ] = useState(null)
     
     const allFollowsURL = 'http://localhost:3000/follows'
+    let navigate = useNavigate()
 
     const followUser = (e) => {
         e.preventDefault()
@@ -45,11 +47,6 @@ const Usercard = (props) => {
         }
     }, []);
     
-    //filters allFollows, sets currentFollow w/ the ID of the person you're looking to unfollow
-    
-    
-    
-    
     const currentFollowId = (e) => {
         e.preventDefault()
         allFollows.map(follow => {
@@ -74,7 +71,6 @@ const Usercard = (props) => {
         e.preventDefault()
         currentFollowId()
     }
-    
 
 
     return (
@@ -86,13 +82,12 @@ const Usercard = (props) => {
                 {/* write an onClick function that initiates a follow and alerts user is followed */}
                 <button className='button-36' onClick={(e) => currentFollowId(e)}>Unfollow</button>
                 {/* write function to delete the follow, alerts unfollowed */}
-                <button className='button-36'>
-                    {/* <Link to={{
-                        pathname: "/Matches",
-                        state: { matchUser: foundUser }
-                    }}> */}
+                <button className='button-36' onClick={() =>
+                    navigate('/Matches',
+                        {state:{ foundUser }}
+                    )
+                }>
                         See Matches
-                    {/* </Link> */}
                 </button>
             </div>
         </div>

@@ -13,11 +13,11 @@ import Favorites from './Components/Favorites';
 import Banner from './Presentational/Banner'
 // import VidPlayer from './Presentational/VidPlayer'
 import Video from './Presentational/Video'
+import Matches from './Components/Matches';
 
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
 // import NotFound from './Presentational/NotFound';
-// import Matches from './Containers/Matches';
 // import { fetchFavorites } from './Containers/import';
 
 const App = () => {
@@ -110,12 +110,12 @@ const App = () => {
               />} 
           />
 
-          {/* <Route
+          <Route
             path={'/Matches'}
             element={
               <Matches />
             } 
-          /> */}
+          />
           
           {/* routes to page w/ single video @ full size */}
           <Route
