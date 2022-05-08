@@ -1,15 +1,13 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const Matches = (props) => {
 
-    const { allFavs, user } =props
+    const { allFavs, user } = props
 
     const location = useLocation()
     const foundUser = location.state.foundUser[0]
-    console.log(foundUser)
-    console.log(allFavs)
-    console.log(user)
+    let navigate = useNavigate()
 
      //sort allFavs down to just the current User's
      const sortUserFavs = allFavs.filter(favorite => favorite.user_id === user.id)
@@ -38,16 +36,18 @@ const Matches = (props) => {
 
     return (
         <>
+            <div className='return-home'>
+                <button className='button-55' onClick={() => navigate(-1)}>
+                    Return to Home
+                </button>
+            </div>
+
             <div className='bg-flex-wrapper'>
                 <div className='match-favs'>
                     <h2>You're both interested in...</h2>
                     {showAllMatches.map((match) => 
                         <li>{match}</li>
                     )}
-                </div>
-
-                <div className='return-home'>
-                    <button></button>
                 </div>
 
                 <div className='my-favs'>
@@ -58,7 +58,7 @@ const Matches = (props) => {
                 </div>
 
                 <div className='their-favs'>
-                    <h2>MATCHES Favorites</h2>      
+                    <h2>My Friend's Favorites</h2>      
                     {sortFoundUserFavs.map((favorite) =>
                         <li>{favorite.video.title}</li>
                     )}
