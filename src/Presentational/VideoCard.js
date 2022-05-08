@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import VideoPlayer from './Video'
+import { useNavigate, Navigate } from 'react-router-dom';
 
 const VideoCard = (props) => {
 
