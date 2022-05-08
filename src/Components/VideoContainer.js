@@ -6,43 +6,43 @@ import UserCard from '../Presentational/UserCard'
 
 const VideoContainer = ( props ) => {
 
-    const { loggedInStatus, user } = props
+    const { loggedInStatus, user, allUsers, allVideos } = props
 
-    const [allVideos, setAllVideos] = useState([]);
-    const [allUsers, setAllUsers ] = useState([])
+    // const [allVideos, setAllVideos] = useState([]);
+    // const [allUsers, setAllUsers ] = useState([])
     const [userSearch, setUserSearch] = useState('');
     const [foundUser, setFoundUser] = useState([]);
     const userSearchRef = useRef()
     //remainder of useState's here are for userSearch, do last
     //make state for Favorites here too?
 
-    const videoURL = 'http://localhost:3000/videos'
-    const allUsersURL = 'http://localhost:3000/users'
+    // const videoURL = 'http://localhost:3000/videos'
+    // const allUsersURL = 'http://localhost:3000/users'
     
     
     //getAllVideos, getAllUsers on page load
-    useEffect(() => {
-        const getAllVideos = () => {
-            axios.get(videoURL)
-        .then((response) => {
-            const allVids = response.data
-            setAllVideos(allVids)
-        })
-        .catch(error => console.log('Error:', error))
-        }
-        const getAllUsers = () => {
-            axios.get(allUsersURL)
-            .then((response) => {
-                const allUserData = response.data
-                setAllUsers(allUserData)
-        })
-            .catch(error => console.log('userError', error))
-        }
-        return () => {
-            getAllVideos()
-            getAllUsers()
-        };
-    }, []);
+    // useEffect(() => {
+    //     const getAllVideos = () => {
+    //         axios.get(videoURL)
+    //     .then((response) => {
+    //         const allVids = response.data
+    //         setAllVideos(allVids)
+    //     })
+    //     .catch(error => console.log('Error:', error))
+    //     }
+    //     const getAllUsers = () => {
+    //         axios.get(allUsersURL)
+    //         .then((response) => {
+    //             const allUserData = response.data
+    //             setAllUsers(allUserData)
+    //     })
+    //         .catch(error => console.log('userError', error))
+    //     }
+    //     return () => {
+    //         getAllVideos()
+    //         getAllUsers()
+    //     };
+    // }, []);
 
     const addToFavorites = (video) => {
         

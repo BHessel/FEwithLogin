@@ -24,6 +24,13 @@ const App = () => {
 
   const [user, setUser] = useState({})
   const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in')
+  const [allVideos, setAllVideos] = useState([])
+  const [allUsers, setAllUsers ] = useState([])
+  const [allFavs, setAllFavs ] = useState([])
+
+  const videoURL = 'http://localhost:3000/videos'
+  const allUsersURL = 'http://localhost:3000/users'
+  const allFavsURL = 'http://localhost:3000/favorites'
   
   const navigate = useNavigate()
   
@@ -46,10 +53,37 @@ const App = () => {
         console.log('check login error?', error)
       })
     }
+    const getAllVideos = () => {
+      axios.get(videoURL)
+      .then((response) => {
+      const allVids = response.data
+      setAllVideos(allVids)
+    })
+      .catch(error => console.log('Error:', error))
+    }
+    const getAllUsers = () => {
+      axios.get(allUsersURL)
+      .then((response) => {
+        const allUserData = response.data
+        setAllUsers(allUserData)
+      })
+        .catch(error => console.log('userError', error))
+    }
+    const getAllFavorites = () => {
+      axios.get(allFavsURL)
+      .then((response) => {
+        const allFavsData = response.data
+        setAllFavs(allFavsData)
+      })
+        .catch(error => console.log('userError', error))
+    }
     return () => {
-      checkLoginStatus()
-      }
-    }, [])
+        checkLoginStatus()
+        getAllVideos()
+        getAllUsers()
+        getAllFavorites()
+        }
+      }, [])
     
     const handleLogin = (data) => {
       setLoggedInStatus('logged_in')
@@ -98,6 +132,8 @@ const App = () => {
               <VideoContainer
                 loggedInStatus={loggedInStatus}
                 user={user}
+                allUsers={allUsers}
+                allVideos={allVideos}
               />
             }>
           </Route>
@@ -113,7 +149,10 @@ const App = () => {
           <Route
             path={'/Matches'}
             element={
-              <Matches />
+              <Matches 
+                user={user}
+                allFavs={allFavs}
+              />
             } 
           />
           
