@@ -42,11 +42,14 @@ const Login = ({ handleSuccessfulAuth }) => {
   };
 
   return (
-    <div>
+    <div className="login-form">
       <form onSubmit={handleSubmit}>
-      <h3>Login:</h3>
+        
+        <h3 className="top-label margin-boost-bottom">
+          Login
+        </h3>
 
-      <div className='form-group'>
+      <div className=''>
         <input
           type="email"
           name="email"
@@ -54,11 +57,11 @@ const Login = ({ handleSuccessfulAuth }) => {
           value={email}
           onChange={handleEmail}
           required
-          className="form-control"
+          className="search"
         />
       </div>
 
-      <div className="form-group">
+      <div className="">
         <input
           type="password"
           name="password"
@@ -66,11 +69,11 @@ const Login = ({ handleSuccessfulAuth }) => {
           value={password}
           onChange={handlePassword}
           required
-          className="form-control"
+          className="search"
         />
       </div>
 
-        <button type="submit" className="btn btn-dark btn-lg btn-block">Login</button>
+        <button type="submit" className="button-27">Login</button>
       </form>
     </div>
   );

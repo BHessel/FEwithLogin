@@ -39,49 +39,51 @@ const Registration = ({ handleSuccessfulAuth }) => {
     
     
     return (
-        <div className='create-user left-side'>
+        <div className='create-user'>
         {/* classNames above may need to change to make sure the form lays out properly w/ merged files */}
             <form onSubmit={handleSubmit}>
                 
-                <h3>Create an Account</h3>
+                <h3 className='top-label'>
+                    Create an Account
+                </h3>
 
-                <div className='form-group'>
+                <div className=''>
                     <input                       
                         type="email"
                         name="email"
                         placeholder='Email'
                         value={email}
                         onChange={handleEmail}
-                        className='form-control'
+                        className='search'
                         required
                     />
                 </div>
             {/* do I need classNames in the inputs? */}
-                <div className='form-group'>
+                <div className=''>
                     <input                       
                         type="password"
                         name="password"
                         placeholder='Password'
                         value={password}
                         onChange={handlePassword}
-                        className='form-control'
+                        className='search'
                         required
                     />
                 </div>
 
-                <div className='form-group'>
+                <div className=''>
                     <input                       
                         type="password"
                         name="password_confirmation"
                         placeholder='Password Confirmation'
                         value={password_confirmation}
                         onChange={handlePasswordConfirmation}
-                        className="form-control"
+                        className="search"
                         required
                     />
                 </div>
 
-                <button type="submit" className="btn btn-dark btn-lg btn-block">
+                <button type="submit" className="button-27">
                     Register
                 </button>
 
