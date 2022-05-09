@@ -596,7 +596,7 @@ li {
 
 .user-card-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   padding: 5px;
 }
 
@@ -620,6 +620,7 @@ color: white;
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+  margin-left: 3px;
 }
 
 .button-36:hover {

@@ -53,7 +53,7 @@ const Usercard = (props) => {
             if (user.id === follow.follower_id && foundUser[0].id === follow.followed_user_id) {
                 // return setCurrentFollow(follow.id)
                 destroyRelationship(follow.id)
-                alert(`You've unfollowed ${foundUser[0].email}`)
+                // alert(`You've unfollowed ${foundUser[0].email}`)
             } else {
                 return console.log('not the person youre following')
             }
@@ -62,8 +62,9 @@ const Usercard = (props) => {
     
     // deletes Follow instance
     const destroyRelationship = (followID) => {
-        axios.delete(`${allFollowsURL}/${followID}`, {withCredentials: true})
-        .then(res => console.log(res))
+        axios.delete(`${allFollowsURL}/${followID}`)
+        .then(alert(`You've unfollowed ${foundUser[0].email}`))
+    
         .catch(error => console.log(error))
     }
     
