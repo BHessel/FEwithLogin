@@ -20,8 +20,6 @@ const Home = (props) => {
                     handleSuccessfulAuth={handleSuccessfulAuth}
                 />
             </div>
-            {/* <div className=""> */}
-            {/* </div> */}
         </>
     );
 }

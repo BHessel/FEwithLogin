@@ -53,7 +53,7 @@ const Usercard = (props) => {
             if (user.id === follow.follower_id && foundUser[0].id === follow.followed_user_id) {
                 // return setCurrentFollow(follow.id)
                 destroyRelationship(follow.id)
-                // alert(`You've unfollowed ${foundUser[0].email}`)
+                alert(`You've unfollowed ${foundUser[0].email}`)
             } else {
                 return console.log('not the person youre following')
             }
@@ -68,10 +68,10 @@ const Usercard = (props) => {
         .catch(error => console.log(error))
     }
     
-    const handleUnfollowClick = (e) => {
-        e.preventDefault()
-        currentFollowId()
-    }
+    // const handleUnfollowClick = (e) => {
+    //     e.preventDefault()
+    //     currentFollowId()
+    // }
 
 
     return (
