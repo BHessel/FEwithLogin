@@ -20,7 +20,11 @@ const Login = ({ handleSuccessfulAuth }) => {
 
     axios
       .post(
-        "https://netflix-movie-matcher.herokuapp.com/sessions",
+        "https://netflix-movie-matcher.herokuapp.com/sessions", { headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+          "Access-Control-Allow-Credentials": true,
+        }},
         {
           user: {
             email: email,
@@ -28,7 +32,7 @@ const Login = ({ handleSuccessfulAuth }) => {
           }
         },
         { withCredentials: true }
-      )
+        )
       .then((response) => {
         // console.log("res from login", response);
         if (response.data.logged_in) {
