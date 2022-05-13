@@ -29,16 +29,17 @@ const App = () => {
   const [allUsers, setAllUsers ] = useState([])
   const [allFavs, setAllFavs ] = useState([])
 
-  const videoURL = 'http://localhost:3000/videos'
-  const allUsersURL = 'http://localhost:3000/users'
-  const allFavsURL = 'http://localhost:3000/favorites'
+  const videoURL = 'https://netflix-movie-matcher.herokuapp.com/videos'
+  //old == 'http://localhost:3000/videos', etc.
+  const allUsersURL = 'https://netflix-movie-matcher.herokuapp.com/users'
+  const allFavsURL = 'https://netflix-movie-matcher.herokuapp.com/favorites'
   
   const navigate = useNavigate()
   
   
   useEffect(() => {
     const checkLoginStatus = () => {
-      axios.get('http://localhost:3000/logged_in',
+      axios.get('https://netflix-movie-matcher.herokuapp.com/logged_in',
       { withCredentials: true })
       .then(response => {
         console.log('logged in?:', response)

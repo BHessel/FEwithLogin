@@ -9,7 +9,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
 
     const handleSubmit = (e) => {
         // console.log('form submitted')
-        axios.post("http://localhost:3000/registrations", {
+        axios.post("https://netflix-movie-matcher.herokuapp.com/registrations", {
             user: {
                 email: email,
                 password: password,

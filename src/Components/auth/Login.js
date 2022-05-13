@@ -20,7 +20,7 @@ const Login = ({ handleSuccessfulAuth }) => {
 
     axios
       .post(
-        "http://localhost:3000/sessions",
+        "https://netflix-movie-matcher.herokuapp.com/sessions",
         {
           user: {
             email: email,
