@@ -10,7 +10,7 @@ const Favorites = (props) => {
     const [allFavorites, setAllFavorites] = useState([]);
 
     let navigate = useNavigate()
-    const favoritesURL = 'http://localhost:3000/favorites'
+    const favoritesURL = 'https://netflix-movie-matcher.herokuapp.com/favorites'
     
     //getAllFavorites
     useEffect(() => {

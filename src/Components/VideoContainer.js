@@ -26,7 +26,7 @@ const VideoContainer = ( props ) => {
             body: JSON.stringify({ favorites })
         }
         
-        fetch('http://localhost:3000/favorites', requestPackage)
+        fetch('https://netflix-movie-matcher.herokuapp.com/favorites', requestPackage)
     }
 
     const handleSearch = () => {

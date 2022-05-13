@@ -9,7 +9,7 @@ const Usercard = (props) => {
     const [ allFollows, setAllFollows ] = useState([])
     const [ currentFollow, setCurrentFollow ] = useState(null)
     
-    const allFollowsURL = 'http://localhost:3000/follows'
+    const allFollowsURL = 'https://netflix-movie-matcher.herokuapp.com/follows'
     let navigate = useNavigate()
 
     const followUser = (e) => {
@@ -27,7 +27,7 @@ const Usercard = (props) => {
         body: JSON.stringify({ follow })
         }
         
-        fetch("http://localhost:3000/follows", requestPackage)
+        fetch(allFollowsURL, requestPackage)
         .then(response => console.log('response from following a user', response))
         .then(alert("friend followed!"))
     }

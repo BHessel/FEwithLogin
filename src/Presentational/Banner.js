@@ -8,7 +8,7 @@ const Banner = (props) => {
     const { user, setUser, handleLogout } = props
 
     const handleLogoutClick = () => {
-        axios.delete('http://localhost:3000/logout', { withCredentials: true })
+        axios.delete('https://netflix-movie-matcher.herokuapp.com/logout', { withCredentials: true })
         .then(response => {
             handleLogout()
         })
