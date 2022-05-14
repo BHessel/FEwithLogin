@@ -40,12 +40,6 @@ const App = () => {
   useEffect(() => {
     const checkLoginStatus = () => {
       axios.get(`${API_ROOT}/logged_in`,
-      {headers: {
-        "Content-Type": "application/json",
-        Accept: "application/json",
-        "Access-Control-Allow-Origin": "*",
-        "Access-Control-Allow-Credentials": true,
-      }},
       { withCredentials: true })
       .then(response => {
         console.log('logged in?:', response)
