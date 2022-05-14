@@ -40,7 +40,11 @@ const App = () => {
   useEffect(() => {
     const checkLoginStatus = () => {
       axios.get(`${API_ROOT}/logged_in`,
-      { withCredentials: true })
+      { withCredentials: true },
+      {headers: {
+        'Access-Control-Allow-Origin' : '*',
+        'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+      }})
       .then(response => {
         console.log('logged in?:', response)
           if (response.data.logged_in && loggedInStatus === 'not_logged_in') {

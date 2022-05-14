@@ -28,7 +28,13 @@ const Login = ({ handleSuccessfulAuth }) => {
             password: password,
           }
         },
-        { withCredentials: true }
+        { withCredentials: true },
+        {
+          headers: {
+            'Access-Control-Allow-Origin' : '*',
+            'Access-Control-Allow-Methods':'GET,PUT,POST,DELETE,PATCH,OPTIONS',
+            }
+        }
         )
       .then((response) => {
         // console.log("res from login", response);
