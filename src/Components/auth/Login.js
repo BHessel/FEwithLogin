@@ -31,6 +31,7 @@ const Login = ({ handleSuccessfulAuth }) => {
         {headers: {
           "Content-Type": "application/json",
           Accept: "application/json",
+          "Access-Control-Allow-Origin": "https://netflix-movie-matcher.heroku.app.com",
           "Access-Control-Allow-Credentials": true,
         }},
         { withCredentials: true },
