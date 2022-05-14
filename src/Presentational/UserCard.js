@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { API_ROOT } from '../services/apiRoot';
 
 const Usercard = (props) => {
     
@@ -9,7 +10,7 @@ const Usercard = (props) => {
     const [ allFollows, setAllFollows ] = useState([])
     const [ currentFollow, setCurrentFollow ] = useState(null)
     
-    const allFollowsURL = 'https://netflix-movie-matcher.herokuapp.com/follows'
+    const allFollowsURL = `${API_ROOT}/follows`
     let navigate = useNavigate()
 
     const followUser = (e) => {

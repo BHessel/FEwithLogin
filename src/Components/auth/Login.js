@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import { API_ROOT } from "../../services/apiRoot";
 
 const Login = ({ handleSuccessfulAuth }) => {
   const [email, setEmail] = useState("");
@@ -20,7 +21,7 @@ const Login = ({ handleSuccessfulAuth }) => {
 
     axios
       .post(
-        "https://netflix-movie-matcher.herokuapp.com/sessions",
+        `${API_ROOT}/sessions`,
         {
           user: {
             email: email,

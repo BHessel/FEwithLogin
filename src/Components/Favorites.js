@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FavCard from '../Presentational/FavCard'
+import { API_ROOT } from '../services/apiRoot';
 
 const Favorites = (props) => {
 
@@ -10,7 +11,7 @@ const Favorites = (props) => {
     const [allFavorites, setAllFavorites] = useState([]);
 
     let navigate = useNavigate()
-    const favoritesURL = 'https://netflix-movie-matcher.herokuapp.com/favorites'
+    const favoritesURL = `${API_ROOT}/favorites`
     
     //getAllFavorites
     useEffect(() => {

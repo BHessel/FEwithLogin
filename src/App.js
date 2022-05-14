@@ -15,7 +15,7 @@ import Banner from './Presentational/Banner'
 import Video from './Presentational/Video'
 import Matches from './Components/Matches';
 import FavsVideo from './Presentational/FavsVideo';
-
+import { API_ROOT } from './services/apiRoot';
 // //Component imports
 // import LoginForm from './Containers/LoginForm';
 // import NotFound from './Presentational/NotFound';
@@ -29,17 +29,17 @@ const App = () => {
   const [allUsers, setAllUsers ] = useState([])
   const [allFavs, setAllFavs ] = useState([])
 
-  const videoURL = 'https://netflix-movie-matcher.herokuapp.com/videos'
+  const videoURL = `${API_ROOT}/videos`
   //old == 'http://localhost:3000/videos', etc.
-  const allUsersURL = 'https://netflix-movie-matcher.herokuapp.com/users'
-  const allFavsURL = 'https://netflix-movie-matcher.herokuapp.com/favorites'
+  const allUsersURL = `${API_ROOT}/users`
+  const allFavsURL = `${API_ROOT}/favorites`
   
   const navigate = useNavigate()
   
   
   useEffect(() => {
     const checkLoginStatus = () => {
-      axios.get('https://netflix-movie-matcher.herokuapp.com/logged_in',
+      axios.get(`${API_ROOT}/logged_in`,
       { withCredentials: true })
       .then(response => {
         console.log('logged in?:', response)

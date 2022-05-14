@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import VideoCard from '../Presentational/VideoCard'
 // import { Link } from 'react-router-dom';
 import UserCard from '../Presentational/UserCard'
+import { API_ROOT } from '../services/apiRoot';
 
 const VideoContainer = ( props ) => {
 
@@ -26,7 +27,7 @@ const VideoContainer = ( props ) => {
             body: JSON.stringify({ favorites })
         }
         
-        fetch('https://netflix-movie-matcher.herokuapp.com/favorites', requestPackage)
+        fetch(`${API_ROOT}/favorites`, requestPackage)
     }
 
     const handleSearch = () => {
