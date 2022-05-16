@@ -76,22 +76,23 @@ const App = () => {
 
   //checkLoginStatus
   useEffect(() => {
-    const checkLoginStatus = () => {
-      axios.get(`${API_ROOT}/logged_in`,
-      { withCredentials: true })
-      .then(response => {
-        console.log('logged in?:', response)
-          if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
-            setLoggedInStatus('logged_in')
-            setUser(response.data.user)
-          } else if (!response.data.logged_in && loggedInStatus === 'logged_in') {
-            setLoggedInStatus('not_logged_in')
-            setUser({})
-          }
-      })
-      .catch(error => {
+    const checkLoginStatus = async () => {
+      try {
+        let checkForLogin = await axios.get(`${API_ROOT}/logged_in`,
+        { withCredentials: true })
+        console.log('logged in?:', checkForLogin)
+            
+        if (checkForLogin.data.logged_in && loggedInStatus === 'not_logged_in') {
+              setLoggedInStatus('logged_in')
+              setUser(checkForLogin.data.user)
+            } else if (!checkForLogin.data.logged_in && loggedInStatus === 'logged_in') {
+              setLoggedInStatus('not_logged_in')
+              setUser({})
+            }
+      }
+      catch (error) {
         console.log('check login error?', error)
-      })
+      }
     }
     return () => {
         checkLoginStatus()
