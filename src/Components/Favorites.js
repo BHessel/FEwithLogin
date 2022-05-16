@@ -6,7 +6,7 @@ import { API_ROOT } from '../services/apiRoot';
 
 const Favorites = (props) => {
 
-    const { user, allFavs } = props
+    const { user, allFavs, loggedInStatus } = props
 
     // const [allFavorites, setAllFavorites] = useState([]);
 

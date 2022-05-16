@@ -7,7 +7,7 @@ import { API_ROOT } from '../services/apiRoot';
 
 const VideoContainer = ( props ) => {
 
-    const { loggedInStatus, user, allUsers, allVideos } = props
+    const { loggedInStatus, user, allUsers, allVideos, allFavs, setAllVideos } = props
 
     const [userSearch, setUserSearch] = useState('');
     const [foundUser, setFoundUser] = useState([]);
@@ -29,6 +29,7 @@ const VideoContainer = ( props ) => {
         
         fetch(`${API_ROOT}/favorites`, requestPackage)
         window.location.reload()
+        // .then(() => setAllVideos(video))
     }
 
     const handleSearch = () => {

@@ -171,6 +171,8 @@ const App = () => {
                 user={user}
                 allUsers={allUsers}
                 allVideos={allVideos}
+                setAllVideos={setAllVideos}
+                allFavs={allFavs}
               />
             }>
           </Route>
