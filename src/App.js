@@ -93,37 +93,11 @@ const App = () => {
         console.log('check login error?', error)
       })
     }
-    // const getAllVideos = () => {
-    //   axios.get(videoURL)
-    //   .then((response) => {
-    //   const allVids = response.data
-    //   setAllVideos(allVids)
-    // })
-    //   .catch(error => console.log('Error:', error))
-    // }
-    // const getAllUsers = () => {
-    //   axios.get(allUsersURL)
-    //   .then((response) => {
-    //     const allUserData = response.data
-    //     setAllUsers(allUserData)
-    //   })
-    //     .catch(error => console.log('userError', error))
-    // }
-    // const getAllFavorites = () => {
-    //   axios.get(allFavsURL)
-    //   .then((response) => {
-    //     const allFavsData = response.data
-    //     setAllFavs(allFavsData)
-    //   })
-    //     .catch(error => console.log('userError', error))
-    // }
     return () => {
         checkLoginStatus()
-        // getAllVideos()
-        // getAllUsers()
-        // getAllFavorites()
         }
-      }, [])
+  }, [])
+  
     
   const handleLogin = (data) => {
       setLoggedInStatus('logged_in')
