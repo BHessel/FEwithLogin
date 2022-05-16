@@ -28,6 +28,7 @@ const VideoContainer = ( props ) => {
         }
         
         fetch(`${API_ROOT}/favorites`, requestPackage)
+        window.location.reload()
     }
 
     const handleSearch = () => {
