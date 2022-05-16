@@ -180,6 +180,7 @@ const App = () => {
             element={
               <Favorites
                 user={user}
+                allFavs={allFavs}
               />} 
           />
 

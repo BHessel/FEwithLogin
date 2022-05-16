@@ -6,31 +6,31 @@ import { API_ROOT } from '../services/apiRoot';
 
 const Favorites = (props) => {
 
-    const { user } = props
+    const { user, allFavs } = props
 
-    const [allFavorites, setAllFavorites] = useState([]);
+    // const [allFavorites, setAllFavorites] = useState([]);
 
     let navigate = useNavigate()
     const favoritesURL = `${API_ROOT}/favorites`
     
-    //getAllFavorites
-    useEffect(() => {
-        const getAllFavorites = () => {
-        axios.get(favoritesURL)
-        .then((response) => {
-            const allFavs = response.data
-            setAllFavorites(allFavs)
-        })
-        .catch(error => console.log('Error:', error))
-    }
-        return () => {
-            getAllFavorites()
-        };
-    }, []);
+    // //getAllFavorites
+    // useEffect(() => {
+    //     const getAllFavorites = () => {
+    //     axios.get(favoritesURL)
+    //     .then((response) => {
+    //         const allFavs = response.data
+    //         setAllFavorites(allFavs)
+    //     })
+    //     .catch(error => console.log('Error:', error))
+    // }
+    //     return () => {
+    //         getAllFavorites()
+    //     };
+    // }, []);
     
     //create currentUserFavs to filter all Favs
     console.log(allFavorites)
-    const currentUserFavs = allFavorites.filter(favorite => favorite.user_id === user.id)
+    const currentUserFavs = allFavs.filter(favorite => favorite.user_id === user.id)
     
     //create removeFromFavs
     const removeFromFavorites = (favorite) => {
