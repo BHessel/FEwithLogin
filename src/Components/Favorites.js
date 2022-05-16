@@ -29,7 +29,7 @@ const Favorites = (props) => {
     // }, []);
     
     //create currentUserFavs to filter all Favs
-    console.log(allFavorites)
+    console.log(allFavs)
     const currentUserFavs = allFavs.filter(favorite => favorite.user_id === user.id)
     
     //create removeFromFavs
