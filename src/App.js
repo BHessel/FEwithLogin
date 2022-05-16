@@ -181,6 +181,7 @@ const App = () => {
               <Favorites
                 user={user}
                 allFavs={allFavs}
+                loggedInStatus={loggedInStatus}
               />} 
           />
 
