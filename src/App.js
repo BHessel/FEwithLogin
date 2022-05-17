@@ -96,7 +96,7 @@ const App = () => {
     return () => {
         checkLoginStatus()
         }
-  }, [])
+  }, [loggedInStatus])
   
     
   const handleLogin = (data) => {
@@ -128,6 +128,7 @@ const App = () => {
             path={"/"}
             element={ !user.id ?
               <Home
+                user={user}
                 loggedInStatus={loggedInStatus}
                 handleLogin={handleLogin}
                 handleLogout={handleLogout}

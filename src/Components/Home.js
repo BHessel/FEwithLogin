@@ -4,7 +4,7 @@ import Login from './auth/Login'
 
 const Home = (props) => {
 
-    const { loggedInStatus, handleLogin, handleLogout } = props
+    const { loggedInStatus, handleLogin, handleLogout, user } = props
 
     const handleSuccessfulAuth = (data) => {
         handleLogin(data)
