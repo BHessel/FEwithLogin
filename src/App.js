@@ -96,7 +96,7 @@ const App = () => {
     return () => {
         checkLoginStatus()
         }
-  }, [loggedInStatus])
+  }, [])
   
     
   const handleLogin = (data) => {
