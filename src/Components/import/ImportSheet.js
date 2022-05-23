@@ -17,7 +17,6 @@ export const fetchVideos = async () => {
     }
 }
 
-
 //fetch all users
 export const getUsers = async () => {
     try {
@@ -28,7 +27,6 @@ export const getUsers = async () => {
         console.log("error", error)
     }
 }
-
 
 //fetch all favorites
 export const fetchFavorites = async () => {
@@ -41,24 +39,3 @@ export const fetchFavorites = async () => {
     }
 }
     
-// const getAllVideos = () => {
-//     .then((response) => {
-//     const allVids = response.data
-//     setAllVideos(allVids)
-//   })
-//     .catch(error => console.log('Error:', error))
-//   }
-//   const getAllUsers = () => {
-//     .then((response) => {
-//       const allUserData = response.data
-//       setAllUsers(allUserData)
-//     })
-//       .catch(error => console.log('userError', error))
-//   }
-//   const getAllFavorites = () => {
-//     .then((response) => {
-//       const allFavsData = response.data
-//       setAllFavs(allFavsData)
-//     })
-//       .catch(error => console.log('userError', error))
-//   }
