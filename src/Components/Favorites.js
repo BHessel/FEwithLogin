@@ -11,7 +11,7 @@ const Favorites = (props) => {
     // const [allFavorites, setAllFavorites] = useState([]);
 
     let navigate = useNavigate()
-    const favoritesURL = `${API_ROOT}/favorites`
+    // const favoritesURL = `${API_ROOT}/favorites`
     
     // //getAllFavorites
     // useEffect(() => {
@@ -37,7 +37,7 @@ const Favorites = (props) => {
         let favId = favorite.id
       
         //DELETE rqst to rails backend
-        fetch(`${favoritesURL}/${favId}`, {
+        fetch(`https://netflix-movie-matcher.herokuapp.com/${favId}`, {
           method: "DELETE",
           header:{'Accept':'application/json'},
           'Content-Type':'application/json'
