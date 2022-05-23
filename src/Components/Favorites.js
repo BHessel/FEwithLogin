@@ -37,7 +37,7 @@ const Favorites = (props) => {
         let favId = favorite.id
       
         //DELETE rqst to rails backend
-        fetch(`https://netflix-movie-matcher.herokuapp.com/${favId}`, {
+        fetch(`https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`, {
           method: "DELETE",
           header:{'Accept':'application/json'},
           'Content-Type':'application/json'
