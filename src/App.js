@@ -26,10 +26,6 @@ const App = () => {
   const [allUsers, setAllUsers ] = useState([])
   const [allFavs, setAllFavs ] = useState([])
 
-  // const videoURL = `${API_ROOT}/videos`
-  // const allUsersURL = `${API_ROOT}/users`
-  // const allFavsURL = `${API_ROOT}/favorites`
-  
   const navigate = useNavigate()
   
   //fetchFavs
@@ -133,7 +129,7 @@ const App = () => {
                 handleLogin={handleLogin}
                 handleLogout={handleLogout}
               /> :
-              <Navigate to='/VideoContainer' />
+              <Navigate replace to='/VideoContainer' />
             }
           />
 
