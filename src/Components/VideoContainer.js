@@ -27,7 +27,7 @@ const VideoContainer = ( props ) => {
             body: JSON.stringify({ favorites })
         }
         
-        fetch(`${API_ROOT}/favorites`, requestPackage)
+        fetch('https://netflixmoviematcher.herokuapp.com/favorites', requestPackage)
         window.location.reload()
         // .then(() => setAllVideos(video))
     }
