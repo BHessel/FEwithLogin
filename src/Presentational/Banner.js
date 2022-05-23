@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from '../Images/netflixMMlogoSMALL.png'
 import axios from 'axios';
-import { API_ROOT } from '../services/apiRoot';
+// import { API_ROOT } from '../services/apiRoot';
 
 
 const Banner = (props) => {
@@ -9,7 +9,7 @@ const Banner = (props) => {
     const { user, setUser, handleLogout } = props
 
     const handleLogoutClick = () => {
-        axios.delete(`${API_ROOT}/logout`, { withCredentials: true })
+        axios.delete('https://netflix-movie-matcher.herokuapp.com/logout', { withCredentials: true })
         .then(response => {
             handleLogout()
         })

@@ -14,7 +14,7 @@ import Banner from './Presentational/Banner'
 import Video from './Presentational/Video'
 import Matches from './Components/Matches';
 import FavsVideo from './Presentational/FavsVideo';
-import { API_ROOT } from './services/apiRoot';
+// import { API_ROOT } from './services/apiRoot';
 import { fetchFavorites, getUsers, fetchVideos } from './Components/import/ImportSheet';
 
 
@@ -73,7 +73,7 @@ const App = () => {
   //checkLoginStatus
   useEffect(() => {
     const checkLoginStatus = () => {
-      axios.get(`${API_ROOT}/logged_in`,
+      axios.get(`https://netflix-movie-matcher.herokuapp.com/logged_in`,
       { withCredentials: true })
       .then(response => {
         console.log('logged in?:', response)
