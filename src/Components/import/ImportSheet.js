@@ -11,6 +11,7 @@ export const fetchVideos = async () => {
     try {
         const response = await fetch('https://netflix-movie-matcher.herokuapp.com/videos')
         const videoList = await response.json()
+        // console.log('fetchVideos response', videoList)
         return videoList
     } catch (error) {
         console.log("error", error)
