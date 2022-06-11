@@ -36,7 +36,7 @@ const Favorites = (props) => {
     const removeFromFavorites = (favorite) => {
         let favId = favorite.id
         // let url = `https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`
-        // console.log('url', favId)
+        console.log('url', favId)
         //DELETE rqst to rails backend
         fetch(`https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`, {
           method: "DELETE",
