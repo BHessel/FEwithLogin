@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import axios from "axios";
 // import { API_ROOT } from "../../services/apiRoot";
+import AuthContext from "../../context/AuthProvider";
 
 const Login = ({ handleSuccessfulAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   // const [loginErrors, setLogginErrors] = useState('')
+
+  const{ setAuth } = useContext(AuthContext)
 
   const handleEmail = (e) => {
     // console.log(e)
@@ -28,11 +31,14 @@ const Login = ({ handleSuccessfulAuth }) => {
             password: password,
           }
         },
-        { withCredentials: true },
-        )
+        {
+          headers: { 'Content-Type': 'application/json'}, 
+          withCredentials: true
+        })
       .then((response) => {
-        // console.log("res from login", response);
+        console.log("res from login", response);
         if (response.data.logged_in) {
+            setAuth({ user: { email, password} })
             handleSuccessfulAuth(response.data)
         }
       })

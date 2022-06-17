@@ -70,41 +70,41 @@ const App = () => {
     handleFetchVideos()
   }, []);
 
-  //checkLoginStatus
-  useEffect(() => {
-    const checkLoginStatus = () => {
-      axios.get(`https://netflix-movie-matcher.herokuapp.com/logged_in`,
-      { withCredentials: true })
-      .then(response => {
-        console.log('logged in?:', response)
-          if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
-            setLoggedInStatus('logged_in')
-            setUser(response.data.user)
-          } else if (!response.data.logged_in && loggedInStatus === 'logged_in') {
-            setLoggedInStatus('not_logged_in')
-            setUser({})
-          }
-      })
-      .catch(error => {
-        console.log('check login error?', error)
-      })
-    }
-    return () => {
-        checkLoginStatus()
-        }
-  }, [loggedInStatus])
+  // //checkLoginStatus
+  // useEffect(() => {
+  //   const checkLoginStatus = () => {
+  //     axios.get(`https://netflix-movie-matcher.herokuapp.com/logged_in`,
+  //     { withCredentials: true })
+  //     .then(response => {
+  //       console.log('logged in?:', response)
+  //         if (response.data.logged_in && loggedInStatus === 'not_logged_in') {
+  //           setLoggedInStatus('logged_in')
+  //           setUser(response.data.user)
+  //         } else if (!response.data.logged_in && loggedInStatus === 'logged_in') {
+  //           setLoggedInStatus('not_logged_in')
+  //           setUser({})
+  //         }
+  //     })
+  //     .catch(error => {
+  //       console.log('check login error?', error)
+  //     })
+  //   }
+  //   return () => {
+  //       checkLoginStatus()
+  //       }
+  // }, [loggedInStatus])
   
     
   const handleLogin = (data) => {
       setLoggedInStatus('logged_in')
       setUser(data.user)
-      navigate('/VideoContainer')
+      navigate('/VideoContainer', { replace: true })
   }
   
   const handleLogout = () => {
       setLoggedInStatus('not_logged_in')
       setUser({})
-      navigate('/')
+      navigate('/', { replace: true })
   }
 
   return (
