@@ -16,12 +16,14 @@ import Matches from './Components/Matches';
 import FavsVideo from './Presentational/FavsVideo';
 // import { API_ROOT } from './services/apiRoot';
 import { fetchFavorites, getUsers, fetchVideos } from './Components/import/ImportSheet';
+import { ProtectedLayout } from './Components/ProtectedLayout'
+import { HomeLayout } from './Components/HomeLayout';
 
 
 const App = () => {
 
-  const [user, setUser] = useState({})
-  const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in')
+  // const [user, setUser] = useState({})
+  // const [loggedInStatus, setLoggedInStatus] = useState('not_logged_in')
   const [allVideos, setAllVideos] = useState([])
   const [allUsers, setAllUsers ] = useState([])
   const [allFavs, setAllFavs ] = useState([])
@@ -95,100 +97,65 @@ const App = () => {
   // }, [loggedInStatus])
   
     
-  const handleLogin = (data) => {
-      setLoggedInStatus('logged_in')
-      setUser(data.user)
-      navigate('/VideoContainer', { replace: true })
-  }
+  // const handleLogin = (data) => {
+  //     setLoggedInStatus('logged_in')
+  //     setUser(data.user)
+  //     navigate('/VideoContainer')
+  // }
   
-  const handleLogout = () => {
-      setLoggedInStatus('not_logged_in')
-      setUser({})
-      navigate('/', { replace: true })
-  }
+  // const handleLogout = () => {
+  //     setLoggedInStatus('not_logged_in')
+  //     setUser({})
+  //     navigate('/')
+  // }
 
   return (
     <div className="App">
       <div className='main-grid'>
-        <Banner
-          user={user}
-          setUser={setUser}
-          handleLogout={handleLogout}
-        />
-      </div>
-
       <div className='body-container'>
         <Routes>
-          
-          <Route
-            path={"/"}
-            element={ !user.id ?
-              <Home
-                user={user}
-                loggedInStatus={loggedInStatus}
-                handleLogin={handleLogin}
-                handleLogout={handleLogout}
-              /> :
-              <Navigate replace to='/VideoContainer' />
-            }
-          />
-
-          <Route
-          //VideoContainer is Dashboard aka logged-in home
-            path={"/VideoContainer"}
-            element={
-              <VideoContainer
-                loggedInStatus={loggedInStatus}
-                user={user}
-                allUsers={allUsers}
-                allVideos={allVideos}
-                setAllVideos={setAllVideos}
-                allFavs={allFavs}
-              />
-            }>
+          <Route element={<HomeLayout />}>
+            <Route path={"/"} element={<Home />} />
           </Route>
 
-          <Route
-            path={'/Favorites'}
-            element={
-              <Favorites
-                user={user}
-                allFavs={allFavs}
-                loggedInStatus={loggedInStatus}
-              />} 
-          />
+          <Route path='/dashboard' element={<ProtectedLayout />}>
+            <Route
+            //VideoContainer is profile aka logged-in home
+              path={"/VideoContainer"}
+              element={
+                  <VideoContainer allUsers={allUsers} allVideos={allVideos} setAllVideos={setAllVideos} allFavs={allFavs} />
+                }
+            />
 
-          <Route
-            path={'/Matches'}
-            element={
-              <Matches 
-                user={user}
-                allFavs={allFavs}
-              />
-            } 
-          />
-          
-          {/* routes to page w/ single video @ full size */}
-          <Route
-            path={'/video'}
-            element={
-              <Video />
-            } 
-          />
+            <Route
+              path={'/Favorites'}
+              element={<Favorites allFavs={allFavs}/>}
+            />
 
-          <Route
-            path={'/favsvideo'}
-            element={
-              <FavsVideo />
-            } 
-          />
+            <Route
+              path={'/Matches'}
+              element={<Matches allFavs={allFavs} />}
+            />
+            
+            {/* routes to page w/ single video @ full size */}
+            <Route
+              path={'/video'}
+              element={<Video />}
+            />
+
+            <Route
+              path={'/favsvideo'}
+              element={<FavsVideo />} 
+            />
 
           {/* <Route
             component={NotFound}
           /> */}
 
-
+          </Route>
         </Routes>
+
+      </div>
       </div>
     </div>
   );

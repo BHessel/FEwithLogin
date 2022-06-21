@@ -1,14 +1,13 @@
 import React, { useState, useContext } from "react";
 import axios from "axios";
 // import { API_ROOT } from "../../services/apiRoot";
-import AuthContext from "../../context/AuthProvider";
+import { useAuth } from "../../context/AuthProvider";
 
 const Login = ({ handleSuccessfulAuth }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  // const [loginErrors, setLogginErrors] = useState('')
 
-  const{ setAuth } = useContext(AuthContext)
+  const { login } = useAuth()
 
   const handleEmail = (e) => {
     // console.log(e)
@@ -21,6 +20,7 @@ const Login = ({ handleSuccessfulAuth }) => {
 
   const handleSubmit = (e) => {
     console.log("form submitted");
+    e.preventDefault();
 
     axios
       .post(
@@ -38,14 +38,12 @@ const Login = ({ handleSuccessfulAuth }) => {
       .then((response) => {
         console.log("res from login", response);
         if (response.data.logged_in) {
-            setAuth({ user: { email, password} })
-            handleSuccessfulAuth(response.data)
+            login(response.data)
         }
       })
       .catch((error) => {
         console.log("login errors", error);
       });
-    e.preventDefault();
   };
 
   return (
