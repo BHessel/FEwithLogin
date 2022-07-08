@@ -1,48 +1,40 @@
-import React from 'react';
-import logo from '../Images/netflixMMlogoSMALL.png'
-import axios from 'axios';
+import React, { useState, useRef } from 'react';
+import logo from "../Images/netflixMMlogoSMALL.png";
+// import axios from "axios";
 // import { API_ROOT } from '../services/apiRoot';
-import { useAuth } from '../context/AuthContext';
+import { useAuth } from "../context/AuthContext";
 
+const Banner = () => {
+  const [error, setError] = useState("");
+  const { currentUser, logoutUser } = useAuth();
 
-const Banner = (props) => {
-
-    // const { user, setUser, handleLogout } = props
-    const { user, logout } = useAuth()
-
-
-
-    const handleLogoutClick = () => {
-        axios.delete('https://netflix-movie-matcher.herokuapp.com/logout', { withCredentials: true })
-        .then(response => {
-            logout()
-        })
-        .catch(error => {
-            console.log('logout error?', error)
-        })
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      setError("");
+      await logoutUser();
+    } catch {
+      setError("Error logging out");
     }
+  };
 
-    return (
-        <div className='banner-box'>
+  return (
+    <div className="banner-box">
+      <div className="logoContainer">
+        <img src={logo} className="logoIMG" />
+      </div>
 
-            <div className='logoContainer'>
-                <img src={logo} className='logoIMG'/>
-            </div>
-            
-            <div className='logout'>
-                {user ? (
-                    <button className='logout-btn' onClick={handleLogoutClick}>
-                        Logout
-                    </button>
-                ) : (
-                    <button className='get-started-btn'>
-                        Get Started
-                    </button>
-                )}
-            </div>
-            
-        </div>
-    );
-}
+      <div className="logout">
+        {currentUser ? (
+          <button className="logout-btn" onClick={handleLogout}>
+            Logout
+          </button>
+        ) : (
+          <button className="get-started-btn">Get Started</button>
+        )}
+      </div>
+    </div>
+  );
+};
 
 export default Banner;
