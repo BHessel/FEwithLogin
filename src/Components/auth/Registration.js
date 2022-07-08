@@ -1,45 +1,38 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import axios from 'axios';
 import { API_ROOT } from '../../services/apiRoot';
 
-const Registration = ({ handleSuccessfulAuth }) => {
+const Registration = () => {
+    const emailRef = useRef();
+    const passwordRef = useRef();
+    const confirmPasswordRef = useRef();
 
-    const [email, setEmail] = useState('')
-    const [password, setPassword] = useState('')
-    const [password_confirmation, setPassword_Confirmation] = useState('')
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const { signupUser } = useAuth();
+    let navigate = useNavigate();
+
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // console.log('form submitted')
-        axios.post(`https://netflix-movie-matcher.herokuapp.com/registrations`, {
-            user: {
-                email: email,
-                password: password,
-                password_confirmation: password_confirmation
-            }},
-            { withCredentials: true }
-        ).then(response => {
-            if (response.data.status === 'created') {
-                //if status is 'created', we need to pass the user (response.data.user to a function that sets user state in authProvider.js)
-                //func in AP.js will take in user, set state w/ user
-                // handleSuccessfulAuth(response.data)
-                console.log('response.data', response.data)
+        if (passwordRef.current.value !== confirmPasswordRef.current.value) {
+            return alert("Passwords do not match")
+        }
+        try {
+            setError("");
+            setLoading(true);
+            await signupUser(
+                emailRef.current.value,
+                passwordRef.current.value,
+                confirmPasswordRef.current.value
+                )
+            } catch {
+                setError("Error signing up")
             }
-        })
-        .catch(error => {console.log("registration error", error)}) 
-    }
-
-    const handleEmail = (e) => {
-        setEmail(e.target.value)
-    }
-
-    const handlePassword = (e) => {
-        setPassword(e.target.value)
-    }
-
-    const handlePasswordConfirmation = (e) => {
-        setPassword_Confirmation(e.target.value)
-    }
+            setLoading(false);
+        }
+    
     
     
     return (
@@ -56,8 +49,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
                         type="email"
                         name="email"
                         placeholder='Email'
-                        value={email}
-                        onChange={handleEmail}
+                        ref={emailRef}
                         className='search'
                         required
                     />
@@ -68,8 +60,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
                         type="password"
                         name="password"
                         placeholder='Password'
-                        value={password}
-                        onChange={handlePassword}
+                        ref={passwordRef}
                         className='search'
                         required
                     />
@@ -80,8 +71,7 @@ const Registration = ({ handleSuccessfulAuth }) => {
                         type="password"
                         name="password_confirmation"
                         placeholder='Password Confirmation'
-                        value={password_confirmation}
-                        onChange={handlePasswordConfirmation}
+                        ref={confirmPasswordRef}
                         className="search"
                         required
                     />

@@ -4,15 +4,18 @@ import VideoCard from '../Presentational/VideoCard'
 // import { Link } from 'react-router-dom';
 import UserCard from '../Presentational/UserCard'
 // import { API_ROOT } from '../services/apiRoot';
+import { useAuth } from '../context/AuthContext';
 
 const VideoContainer = ( props ) => {
 
-    const { loggedInStatus, user, allUsers, allVideos, allFavs, setAllVideos } = props
+    const { allUsers, allVideos } = props
 
     const [userSearch, setUserSearch] = useState('');
     const [foundUser, setFoundUser] = useState([]);
     const userSearchRef = useRef()
     let navigate = useNavigate()
+
+    const { currentUser } = useAuth();
 
     const addToFavorites = (video) => {
         
@@ -49,7 +52,8 @@ const VideoContainer = ( props ) => {
         <>
             <h1 className='video-header bg-color'>Welcome to Netflix MovieMatcher</h1>
             <p className='video-subheader bg-color'>Scroll or search for shows and movies to watch each trailer. If you like it, click "Add to Favorites," and then connect with friends to see where your TV interests match! </p>
-
+            <p>{currentUser.email}</p>
+            <p>{JSON.stringify(currentUser)}</p>
             {/* in final form, maybe make this its own userSearch component? */}
             <div className='friend-search bg-color'>
                 {/* this is the form to search for friends to follow */}
