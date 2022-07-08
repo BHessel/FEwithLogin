@@ -1,16 +1,18 @@
 import React from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 
 const Matches = (props) => {
 
-    const { allFavs, user } = props
+    const { allFavs } = props
 
+    const { currentUser } = useAuth();
     const location = useLocation()
     const foundUser = location.state.foundUser[0]
     let navigate = useNavigate()
 
      //sort allFavs down to just the current User's
-     const sortUserFavs = allFavs.filter(favorite => favorite.user_id === user.id)
+     const sortUserFavs = allFavs.filter(favorite => favorite.user_id === currentUser.id)
      console.log('sort', sortUserFavs)
      
      //sort allFavs down to just the foundUser's

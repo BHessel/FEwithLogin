@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { API_ROOT } from "../services/apiRoot";
+// import { API_ROOT } from "../services/apiRoot";
 import { useAuth } from "../context/AuthContext";
 
 const Usercard = (props) => {
   const { foundUser } = props;
 
   const [allFollows, setAllFollows] = useState([]);
-  const [currentFollow, setCurrentFollow] = useState(null);
+//   const [currentFollow, setCurrentFollow] = useState(null);
 
   const { currentUser } = useAuth();
 
@@ -60,6 +60,7 @@ const Usercard = (props) => {
     e.preventDefault();
     allFollows.map((follow) => {
       if (
+        
         currentUser.id === follow.follower_id &&
         foundUser[0].id === follow.followed_user_id
       ) {
@@ -67,7 +68,7 @@ const Usercard = (props) => {
         destroyRelationship(follow.id);
         // alert(`You've unfollowed ${foundUser[0].email}`)
       } else {
-        return console.log("not the person youre following");
+        return console.log("Not deleted");
       }
     });
   };
@@ -77,14 +78,13 @@ const Usercard = (props) => {
     axios
       .delete(`https://netflix-movie-matcher.herokuapp.com/follows/${followID}`)
       .then(alert(`You've unfollowed ${foundUser[0].email}`))
-
       .catch((error) => console.log(error));
   };
 
-  const handleUnfollowClick = (e) => {
-    e.preventDefault();
-    currentFollowId();
-  };
+//   const handleUnfollowClick = (e) => {
+//     e.preventDefault();
+//     currentFollowId();
+//   };
 
   return (
     <div className="user-card-main">
@@ -101,7 +101,8 @@ const Usercard = (props) => {
         {/* write function to delete the follow, alerts unfollowed */}
         <button
           className="button-36"
-          onClick={() => navigate("/Matches", { state: { foundUser } })}
+          onClick={() => {
+            navigate("/Matches", { state: { foundUser } })}}
         >
           See Matches
         </button>
