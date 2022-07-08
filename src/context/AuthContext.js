@@ -1,4 +1,4 @@
-import React, { useState, useContext, createContext } from "react";
+import React, { useContext, createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useLocalStorage } from "./useLocalStorage"
@@ -77,7 +77,7 @@ const AuthProvider = ({ children }) => {
       .then((response) => {
         console.log("logout response", response);
         // return response;
-        navigate("/login", { replace: true });
+        navigate("/", { replace: true });
       })
       .catch((error) => {
         console.log("logout error?", error);

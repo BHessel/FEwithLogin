@@ -16,11 +16,12 @@ const VideoContainer = ( props ) => {
     let navigate = useNavigate()
 
     const { currentUser } = useAuth();
+    console.log("currentUser from VideoContainer", currentUser);
 
     const addToFavorites = (video) => {
         
         let favorites = {
-            user_id: user.id,
+            user_id: currentUser.id,
             video_id: video.id     
         }
 
@@ -78,7 +79,7 @@ const VideoContainer = ( props ) => {
                     <UserCard
                         allVideos={allVideos}
                         foundUser={foundUser}
-                        user={user}
+                        
                     /> :
                     <div className='friend-search-2'>
                     </div>
