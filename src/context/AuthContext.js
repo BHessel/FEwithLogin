@@ -13,11 +13,11 @@ const AuthProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useLocalStorage("user", null);
   let navigate = useNavigate();
 
-  const signupUser = (email, password, password_confirmation) => {
+  const signupUser = async (email, password, password_confirmation) => {
     console.log("signup function email", email);
     console.log("signup function password", password);
 
-    axios
+    await axios
       .post(
         `https://netflix-movie-matcher.herokuapp.com/registrations`,
         {
