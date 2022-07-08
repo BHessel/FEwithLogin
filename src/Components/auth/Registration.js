@@ -9,8 +9,9 @@ const Registration = ({ handleSuccessfulAuth }) => {
     const [password_confirmation, setPassword_Confirmation] = useState('')
 
     const handleSubmit = (e) => {
+        e.preventDefault()
         // console.log('form submitted')
-        axios.post(`${API_ROOT}/registrations`, {
+        axios.post(`https://netflix-movie-matcher.herokuapp.com/registrations`, {
             user: {
                 email: email,
                 password: password,
@@ -19,11 +20,13 @@ const Registration = ({ handleSuccessfulAuth }) => {
             { withCredentials: true }
         ).then(response => {
             if (response.data.status === 'created') {
-                handleSuccessfulAuth(response.data)
+                //if status is 'created', we need to pass the user (response.data.user to a function that sets user state in authProvider.js)
+                //func in AP.js will take in user, set state w/ user
+                // handleSuccessfulAuth(response.data)
+                console.log('response.data', response.data)
             }
         })
         .catch(error => {console.log("registration error", error)}) 
-        e.preventDefault()
     }
 
     const handleEmail = (e) => {

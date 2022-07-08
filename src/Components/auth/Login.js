@@ -1,84 +1,60 @@
-import React, { useState, useContext } from "react";
+import React, { useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from "axios";
 // import { API_ROOT } from "../../services/apiRoot";
 import { useAuth } from "../../context/AuthProvider";
 
-const Login = ({ handleSuccessfulAuth }) => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+const Login = () => {
+  const emailRef = useRef();
+  const passwordRef = useRef();
 
-  const { login } = useAuth()
+  const [error, setError] = useState("");
 
-  const handleEmail = (e) => {
-    // console.log(e)
-    setEmail(e.target.value);
-  };
+  const { loginUser } = useAuth();
 
-  const handlePassword = (e) => {
-    setPassword(e.target.value);
-  };
+  let navigate = useNavigate();
 
-  const handleSubmit = (e) => {
-    console.log("form submitted");
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    axios
-      .post(
-        'https://netflix-movie-matcher.herokuapp.com/sessions',
-        {
-          user: {
-            email: email,
-            password: password,
-          }
-        },
-        {
-          headers: { 'Content-Type': 'application/json'}, 
-          withCredentials: true
-        })
-      .then((response) => {
-        console.log("res from login", response);
-        if (response.data.logged_in) {
-            login(response.data)
-        }
-      })
-      .catch((error) => {
-        console.log("login errors", error);
-      });
+    try {
+      setError("");
+      await loginUser(emailRef.current.value, passwordRef.current.value);
+      navigate("/");
+    } catch {
+      setError("Error logging in");
+    }
   };
 
   return (
     <div className="login-form">
       <form onSubmit={handleSubmit}>
-        
-        <h3 className="top-label margin-boost-bottom">
+        <h3 className="top-label margin-boost-bottom">Login</h3>
+
+        <div className="">
+          <input
+            type="email"
+            name="email"
+            placeholder="Email"
+            ref={emailRef}
+            required
+            className="search"
+          />
+        </div>
+
+        <div className="">
+          <input
+            type="password"
+            name="password"
+            placeholder="Password"
+            ref={passwordRef}
+            required
+            className="search"
+          />
+        </div>
+
+        <button type="submit" className="button-27">
           Login
-        </h3>
-
-      <div className=''>
-        <input
-          type="email"
-          name="email"
-          placeholder="Email"
-          value={email}
-          onChange={handleEmail}
-          required
-          className="search"
-        />
-      </div>
-
-      <div className="">
-        <input
-          type="password"
-          name="password"
-          placeholder="Password"
-          value={password}
-          onChange={handlePassword}
-          required
-          className="search"
-        />
-      </div>
-
-        <button type="submit" className="button-27">Login</button>
+        </button>
       </form>
     </div>
   );

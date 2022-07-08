@@ -1,29 +1,21 @@
-import React from 'react';
-import Registration from './auth/Registration';
-import Login from './auth/Login'
+import React, { useState } from "react";
+import Registration from "./auth/Registration";
+import Login from "./auth/Login";
+import { useAuth } from "../context/AuthProvider";
 
-const Home = (props) => {
+const Home = () => {
+  const [error, setError] = useState("");
+  const { currentUser } = useAuth();
+  console.log("currentUser from home", currentUser);
 
-    const { loggedInStatus, handleLogin, handleLogout, user } = props
-
-    const handleSuccessfulAuth = (data) => {
-        handleLogin(data)
-    }
-
-    return (
-        <>
-            <div className="bg-flex-wrapper-2">
-                <Registration 
-                    handleSuccessfulAuth={handleSuccessfulAuth}    
-                />
-                <Login 
-                    handleSuccessfulAuth={handleSuccessfulAuth}
-                />
-            </div>
-            {/* <div className=""> */}
-            {/* </div> */}
-        </>
-    );
-}
+  return (
+    <>
+      <div className="bg-flex-wrapper-2">
+        <Registration />
+        <Login />
+      </div>
+    </>
+  );
+};
 
 export default Home;
