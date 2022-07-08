@@ -33,7 +33,7 @@ const AuthProvider = ({ children }) => {
         console.log("response from signup", response);
         if (response.data.status === "created") {
           setCurrentUser(response.data.user);
-          navigate("/");
+          navigate("/VideoContainer");
         }
       })
 
@@ -77,6 +77,7 @@ const AuthProvider = ({ children }) => {
       .then((response) => {
         console.log("logout response", response);
         // return response;
+        setCurrentUser(null)
         navigate("/", { replace: true });
       })
       .catch((error) => {
