@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
         console.log("res from login", response);
         if (response.data.logged_in) {
           setCurrentUser(response.data.user);
-          navigate("/");
+          navigate("/VideoContainer");
         }
       })
       .catch((error) => {

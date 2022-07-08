@@ -19,7 +19,7 @@ const Login = () => {
     try {
       setError("");
       await loginUser(emailRef.current.value, passwordRef.current.value);
-      navigate("/");
+      // navigate("/VideoContainer");
     } catch {
       setError("Error logging in");
     }
