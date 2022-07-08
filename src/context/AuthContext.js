@@ -1,7 +1,7 @@
 import React, { useState, useContext, createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "../hooks/useLocalStorage";
+import { useLocalStorage } from "./useLocalStorage"
 
 const AuthContext = createContext();
 

@@ -8,7 +8,7 @@ import Banner from "./Presentational/Banner";
 import Video from "./Presentational/Video";
 import Matches from "./Components/Matches";
 import FavsVideo from "./Presentational/FavsVideo";
-// import PrivateRoute from "./Components/PrivateRoute";
+import PrivateRoute from "./Components/PrivateRoute";
 
 // import { API_ROOT } from './services/apiRoot';
 import {

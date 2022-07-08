@@ -14,7 +14,7 @@ const Registration = () => {
     let navigate = useNavigate();
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         if (passwordRef.current.value !== confirmPasswordRef.current.value) {
             return alert("Passwords do not match")
