@@ -3,10 +3,12 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import FavCard from '../Presentational/FavCard'
 import { API_ROOT } from '../services/apiRoot';
+import { useAuth } from '../context/AuthContext';
 
 const Favorites = (props) => {
 
-    const { user, allFavs, loggedInStatus } = props
+    const { allFavs } = props
+    const { currentUser } = useAuth();
 
     // const [allFavorites, setAllFavorites] = useState([]);
 
@@ -30,20 +32,24 @@ const Favorites = (props) => {
     
     //create currentUserFavs to filter all Favs
     console.log(allFavs)
-    const currentUserFavs = allFavs.filter(favorite => favorite.user_id === user.id)
+    console.log('currentUser from FAVORITES', currentUser)
+    const currentUserFavs = allFavs.filter(favorite => favorite.user_id === currentUser.id)
     
     //create removeFromFavs
-    const removeFromFavorites = (favorite) => {
+    const removeFromFavorites = async (favorite) => {
         let favId = favorite.id
         // let url = `https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`
-        console.log('url', favId)
+        // console.log('url', favId)
         //DELETE rqst to rails backend
-        fetch(`https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`, {
+        await fetch(`https://netflix-movie-matcher.herokuapp.com/favorites/${favId}`, {
           method: "DELETE",
-          header:{'Accept':'application/json'},
-          'Content-Type':'application/json'
+        //   header:{'Accept':'application/json'},
+        //   'Content-Type':'application/json'
          })
-        window.location.reload()
+        .then(response => {
+            console.log('response', response)
+            window.location.reload()
+        })
     }
 
     return (
@@ -65,6 +71,7 @@ const Favorites = (props) => {
                 />
             )}
         </div>
+        
         </>
     );
 }
