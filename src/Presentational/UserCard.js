@@ -12,7 +12,7 @@ const Usercard = (props) => {
 
   const { currentUser } = useAuth();
 
-  const allFollowsURL = `${API_ROOT}/follows`;
+//   const allFollowsURL = `${API_ROOT}/follows`;
   let navigate = useNavigate();
 
   const followUser = (e) => {
@@ -33,7 +33,7 @@ const Usercard = (props) => {
       body: JSON.stringify({ follow }),
     };
 
-    fetch(allFollowsURL, requestPackage)
+    fetch('https://netflix-movie-matcher.herokuapp.com/follows', requestPackage)
       .then((response) =>
         console.log("response from following a user", response)
       )
@@ -44,7 +44,7 @@ const Usercard = (props) => {
   useEffect(() => {
     const getAllFollows = () => {
       axios
-        .get(allFollowsURL)
+        .get("https://netflix-movie-matcher.herokuapp.com/follows")
         .then((response) => {
           const listAllFollows = response.data;
           setAllFollows(listAllFollows);
@@ -75,7 +75,7 @@ const Usercard = (props) => {
   // deletes Follow instance
   const destroyRelationship = (followID) => {
     axios
-      .delete(`${allFollowsURL}/${followID}`)
+      .delete(`https://netflix-movie-matcher.herokuapp.com/follows/${followID}`)
       .then(alert(`You've unfollowed ${foundUser[0].email}`))
 
       .catch((error) => console.log(error));
