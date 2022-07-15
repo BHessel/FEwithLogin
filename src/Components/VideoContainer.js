@@ -62,8 +62,7 @@ const VideoContainer = (props) => {
         it, click "Add to Favorites," and then connect with friends to see where
         your TV interests match!{" "}
       </p>
-      <p>{currentUser.email}</p>
-      <p>{JSON.stringify(currentUser)}</p>
+      
       {/* in final form, maybe make this its own userSearch component? */}
       <div className="friend-search bg-color">
         {/* this is the form to search for friends to follow */}

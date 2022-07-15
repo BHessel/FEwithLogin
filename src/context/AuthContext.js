@@ -1,7 +1,7 @@
 import React, { useContext, createContext } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { useLocalStorage } from "./useLocalStorage"
+import { useLocalStorage } from "./useLocalStorage";
 
 const AuthContext = createContext();
 
@@ -36,7 +36,6 @@ const AuthProvider = ({ children }) => {
           navigate("/VideoContainer");
         }
       })
-
       .catch((error) => {
         console.log("error from signup", error);
       });
@@ -77,7 +76,7 @@ const AuthProvider = ({ children }) => {
       .then((response) => {
         console.log("logout response", response);
         // return response;
-        setCurrentUser(null)
+        setCurrentUser(null);
         navigate("/", { replace: true });
       })
       .catch((error) => {
