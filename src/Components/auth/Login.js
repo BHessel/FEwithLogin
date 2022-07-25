@@ -1,6 +1,4 @@
 import React, { useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
 // import { API_ROOT } from "../../services/apiRoot";
 import { useAuth } from "../../context/AuthContext";
 
@@ -12,14 +10,11 @@ const Login = () => {
 
   const { loginUser } = useAuth();
 
-  let navigate = useNavigate();
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       setError("");
       await loginUser(emailRef.current.value, passwordRef.current.value);
-      // navigate("/VideoContainer");
     } catch {
       setError("Error logging in");
     }

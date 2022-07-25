@@ -1,5 +1,3 @@
-// import axios from "axios"
-// import React, { useState } from "react"
 // import { API_ROOT } from "../../services/apiRoot"
 
 // const videoURL = `${API_ROOT}/videos`
@@ -11,7 +9,6 @@ export const fetchVideos = async () => {
     try {
         const response = await fetch('https://netflix-movie-matcher.herokuapp.com/videos')
         const videoList = await response.json()
-        // console.log('fetchVideos response', videoList)
         return videoList
     } catch (error) {
         console.log("error", error)

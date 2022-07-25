@@ -1,5 +1,4 @@
 import React, { useState, useRef } from 'react';
-import axios from 'axios';
 import { API_ROOT } from '../../services/apiRoot';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
@@ -56,8 +55,8 @@ const Registration = () => {
                         required
                     />
                 </div>
-            {/* do I need classNames in the inputs? */}
-                <div className=''>
+
+                <div>
                     <input                       
                         type="password"
                         name="password"
@@ -68,7 +67,7 @@ const Registration = () => {
                     />
                 </div>
 
-                <div className=''>
+                <div>
                     <input                       
                         type="password"
                         name="password_confirmation"

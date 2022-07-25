@@ -69,7 +69,6 @@ const App = () => {
           <Routes>
             <Route exact path={"/"} element={<Home />} />
             <Route
-              //VideoContainer is profile aka logged-in home
               path={"/VideoContainer"}
               element={
                 <PrivateRoute>
@@ -101,7 +100,6 @@ const App = () => {
               }
             />
 
-            {/* routes to page w/ single video @ full size */}
             <Route
               path={"/video"}
               element={
@@ -120,11 +118,6 @@ const App = () => {
               }
             />
 
-            {/* <Route
-            component={NotFound}
-          /> */}
-
-            {/* </Route> */}
           </Routes>
         </div>
       </div>
