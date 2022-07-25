@@ -1,6 +1,5 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import logo from "../Images/netflixMMlogoSMALL.png";
-// import axios from "axios";
 // import { API_ROOT } from '../services/apiRoot';
 import { useAuth } from "../context/AuthContext";
 

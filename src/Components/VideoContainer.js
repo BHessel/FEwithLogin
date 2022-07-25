@@ -1,7 +1,6 @@
 import React, { useState, useRef } from "react";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import VideoCard from "../Presentational/VideoCard";
-// import { Link } from 'react-router-dom';
 import UserCard from "../Presentational/UserCard";
 // import { API_ROOT } from '../services/apiRoot';
 import { useAuth } from "../context/AuthContext";
@@ -42,12 +41,11 @@ const VideoContainer = (props) => {
 
   const handleSearch = () => {
     let searchValue = userSearchRef.current.value;
-    // console.log('this is the searchvalue', searchValue)
     setUserSearch(searchValue);
   };
 
   const findFriend = (e) => {
-    e.preventDefault(); //cancels an error in the terminal that said "form submission cancelled because the form is not connected"
+    e.preventDefault();
     let findUser = allUsers.filter(
       (user) => user.email.toLowerCase() === userSearch.toLowerCase()
     );
@@ -101,7 +99,6 @@ const VideoContainer = (props) => {
           onClick={() => navigate("/Favorites")}
         >
           See My Favorites
-          {/* <Link to="/Favorites">See My Favorites</Link> */}
         </button>
       </div>
 

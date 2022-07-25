@@ -14,9 +14,6 @@ const AuthProvider = ({ children }) => {
   let navigate = useNavigate();
 
   const signupUser = async (email, password, password_confirmation) => {
-    console.log("signup function email", email);
-    console.log("signup function password", password);
-
     await axios
       .post(
         `https://netflix-movie-matcher.herokuapp.com/registrations`,
@@ -30,7 +27,6 @@ const AuthProvider = ({ children }) => {
         { withCredentials: true }
       )
       .then((response) => {
-        console.log("response from signup", response);
         if (response.data.status === "created") {
           setCurrentUser(response.data.user);
           navigate("/VideoContainer");
@@ -74,8 +70,6 @@ const AuthProvider = ({ children }) => {
         withCredentials: true,
       })
       .then((response) => {
-        console.log("logout response", response);
-        // return response;
         setCurrentUser(null);
         navigate("/", { replace: true });
       })

@@ -8,11 +8,10 @@ const Usercard = (props) => {
   const { foundUser } = props;
 
   const [allFollows, setAllFollows] = useState([]);
-//   const [currentFollow, setCurrentFollow] = useState(null);
 
   const { currentUser } = useAuth();
 
-//   const allFollowsURL = `${API_ROOT}/follows`;
+  //   const allFollowsURL = `${API_ROOT}/follows`;
   let navigate = useNavigate();
 
   const followUser = (e) => {
@@ -33,7 +32,7 @@ const Usercard = (props) => {
       body: JSON.stringify({ follow }),
     };
 
-    fetch('https://netflix-movie-matcher.herokuapp.com/follows', requestPackage)
+    fetch("https://netflix-movie-matcher.herokuapp.com/follows", requestPackage)
       .then((response) =>
         console.log("response from following a user", response)
       )
@@ -60,13 +59,10 @@ const Usercard = (props) => {
     e.preventDefault();
     allFollows.map((follow) => {
       if (
-        
         currentUser.id === follow.follower_id &&
         foundUser[0].id === follow.followed_user_id
       ) {
-        // return setCurrentFollow(follow.id)
         destroyRelationship(follow.id);
-        // alert(`You've unfollowed ${foundUser[0].email}`)
       } else {
         return console.log("Not deleted");
       }
@@ -81,11 +77,6 @@ const Usercard = (props) => {
       .catch((error) => console.log(error));
   };
 
-//   const handleUnfollowClick = (e) => {
-//     e.preventDefault();
-//     currentFollowId();
-//   };
-
   return (
     <div className="user-card-main">
       <h4>Found! {foundUser[0].email} </h4>
@@ -94,15 +85,14 @@ const Usercard = (props) => {
         <button className="button-36" onClick={(e) => followUser(e)}>
           Follow User
         </button>
-        {/* write an onClick function that initiates a follow and alerts user is followed */}
         <button className="button-36" onClick={(e) => currentFollowId(e)}>
           Unfollow
         </button>
-        {/* write function to delete the follow, alerts unfollowed */}
         <button
           className="button-36"
           onClick={() => {
-            navigate("/Matches", { state: { foundUser } })}}
+            navigate("/Matches", { state: { foundUser } });
+          }}
         >
           See Matches
         </button>

@@ -8,8 +8,6 @@ const Favcard = (props) => {
     let navigate = useNavigate()
 
     const navToTrailer = (favorite) => {
-        console.log(favorite)
-        // return <Navigate to='/video'/>
         navigate('/favsvideo',
             {state:{favorite: favorite}}
     )

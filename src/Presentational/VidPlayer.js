@@ -5,12 +5,9 @@ import YouTube from 'react-youtube';
 const VidPlayer = () => {
 
     const location = useLocation()
-    console.log(location)
     
-
     const videoId = location.state.video.thumbnail.split('/')[4]
-    console.log('videoId', videoId)
-
+    
     const onPlayerReady = (event) => {
         // access to player in all event handlers via event.target
         console.log(event)
