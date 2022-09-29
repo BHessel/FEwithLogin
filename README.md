@@ -5,8 +5,8 @@
     <img src="https://img.shields.io/badge/made_by-Ben-blue.svg" >
     <img src="https://img.shields.io/github/languages/count/BHessel/open-AI-tools?color=green">
 
-<h1 align="center">Netflix Movie Matcher</h1>
-<h3 align="center"><a href="https://netflixmoviematcher.herokuapp.com/">** Click Here to Demo **</a></h3>
+<!-- <h1 align="center">Netflix Movie Matcher</h1> -->
+<h2 align="center"><a href="https://netflixmoviematcher.herokuapp.com/">** Click Here to Demo **</a></h2>
 </p>
 
 ## Description
@@ -15,7 +15,7 @@ Think of this as **a hybrid of Netflix and Tinder**.
 
 Do you and your partner waste a lot of time looking for a show to watch together?
 
-Netflix Movie Matcher is the solution that gives you back your time together.
+Netflix Movie Matcher is the solution that gives you back your time.
 
 **Users can:**
 :white_check_mark: - Create their own accounts

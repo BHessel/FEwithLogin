@@ -7,9 +7,9 @@ const VideoCard = (props) => {
   let navigate = useNavigate();
 
   return (
-    <div className="card-container" key={video.id}>
+    <div className='card-container' key={video.id}>
       <div className="vid-card-img">
-        <img src={video.thumbnail} />
+        <img src={video.thumbnail} alt="thumbnail"/>
       </div>
 
       <div className="card-content">

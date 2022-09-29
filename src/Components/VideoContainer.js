@@ -6,7 +6,7 @@ import UserCard from "../Presentational/UserCard";
 import { useAuth } from "../context/AuthContext";
 
 const VideoContainer = (props) => {
-  const { allUsers, allVideos } = props;
+  const { allUsers, allVideos, allFavs, setAllFavs } = props;
 
   const [userSearch, setUserSearch] = useState("");
   const [foundUser, setFoundUser] = useState([]);
@@ -16,7 +16,8 @@ const VideoContainer = (props) => {
   const { currentUser } = useAuth();
   console.log("currentUser from VideoContainer", currentUser);
 
-  const addToFavorites = (video) => {
+  const addToFavorites = async (video) => {
+    console.log("check video for key", video)
     let favorites = {
       user_id: currentUser.id,
       video_id: video.id,
@@ -31,12 +32,14 @@ const VideoContainer = (props) => {
       body: JSON.stringify({ favorites }),
     };
 
-    fetch(
+    await fetch(
       "https://netflix-movie-matcher.herokuapp.com/favorites",
       requestPackage
-    );
-    window.location.reload();
-    // .then(() => setAllVideos(video))
+    )
+      .then((resp) => resp.json())
+      .then((data) => {
+        setAllFavs(...allFavs, data);
+      })
   };
 
   const handleSearch = () => {

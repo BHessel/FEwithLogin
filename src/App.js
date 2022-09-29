@@ -33,7 +33,7 @@ const App = () => {
       }
     };
     handleFetchFavorites();
-  }, []);
+  }, [allFavs]);
 
   //getUsers
   useEffect(() => {
@@ -77,6 +77,7 @@ const App = () => {
                     allVideos={allVideos}
                     setAllVideos={setAllVideos}
                     allFavs={allFavs}
+                    setAllFavs={setAllFavs}
                   />
                 </PrivateRoute>
               }
