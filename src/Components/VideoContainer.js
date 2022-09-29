@@ -14,9 +14,17 @@ const VideoContainer = (props) => {
   let navigate = useNavigate();
 
   const { currentUser } = useAuth();
-  console.log("currentUser from VideoContainer", currentUser);
+
+  const animateCard = (id) => {
+    const card = document.getElementById(id);
+    card.classList.add("shake");
+    setTimeout(() => {
+      card.classList.remove("shake");
+    }, 400);
+  }
 
   const addToFavorites = async (video) => {
+    animateCard(video.id);
     console.log("check video for key", video)
     let favorites = {
       user_id: currentUser.id,
