@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import logo from "../Images/netflixMMlogoSMALL.png";
 // import { API_ROOT } from '../services/apiRoot';
 import { useAuth } from "../context/AuthContext";
@@ -20,7 +20,7 @@ const Banner = () => {
   return (
     <div className="banner-box">
       <div className="logoContainer">
-        <img src={logo} className="logoIMG" />
+        <img src={logo} alt="logo" className="logoIMG" />
       </div>
 
       <div className="logout">
@@ -29,7 +29,7 @@ const Banner = () => {
             Logout
           </button>
         ) : (
-          <button className="get-started-btn">Get Started</button>
+          <></>
         )}
       </div>
     </div>
