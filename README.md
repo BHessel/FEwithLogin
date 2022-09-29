@@ -1,71 +1,60 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+    <img src="./src/Images/netflixmmlogo.png">
+    <img src="https://img.shields.io/github/followers/BHessel?style=social">
+    <img src="https://img.shields.io/badge/made_by-Ben-blue.svg" >
+    <img src="https://img.shields.io/github/languages/count/BHessel/open-AI-tools?color=green">
 
-## Available Scripts
+<h1 align="center">Netflix Movie Matcher</h1>
+<h3 align="center"><a href="https://netflixmoviematcher.herokuapp.com/">** Click Here to Demo **</a></h3>
+</p>
 
-In the project directory, you can run:
+## Description
 
-### `npm start`
+Think of this as **a hybrid of Netflix and Tinder**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Do you and your partner waste a lot of time looking for a show to watch together?
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Netflix Movie Matcher is the solution that gives you back your time together.
 
-### `npm test`
+**Users can:**
+:white_check_mark: - Create their own accounts
+:movie_camera: - Watch Netflix show/movie trailers
+:+1: - Add/remove trailers from their personal Favorites list
+:mag_right: - Search for other users
+:couple: - Follow/unfollow other users (Twitter-style relationship)
+:tv: - Compare favorites with other users
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Demo
 
-### `npm run build`
+If you'd like to [visit the site](https://netflixmoviematcher.herokuapp.com/), I made you an account already :)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<i>(but you're welcome to make your own!)</i>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Username:** `netflixDemo@dev.com`
+**Password:** `TopSecret`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+:exclamation: Feel free to use `ben@dev.com` as another profile to search for.
 
-### `npm run eject`
+<h3 align="center">Otherwise, keep scroling down for a detailed site preview...</h3>
+<p align="center">
+    <img src="https://media.giphy.com/media/HZmJfgID3DUXim2Oqk/giphy.gif" width="80%">
+</p>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+1) code improvement for refresh
+2) gif showing Play Movie in theatre mode, AddtoFavs, return home, search friend, compare. 
+3) Return Home AND Add to Favorites button on movie theatre page, gray box white font below lorum ipsum, big rectangle, easy
+4) Have image of Home page, Movie Theatre Mode, Compare mode
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# FEwithLogin
+## Technologies
+- ReactJS
+- CSS (no frameworks)
+- [React Router](https://reactrouter.com/en/v6.3.0/getting-started/overview)
+- [React Youtube](https://www.npmjs.com/package/react-youtube)
+- Heroku (for deployment)
+- [Backend GitHub can be found here](LINK)
+ -Ruby
+ -PostgreSQL
+## Use
+If you clone this repo, you can run it locally using `npm start`
