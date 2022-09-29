@@ -2,15 +2,20 @@ import React, { useState } from "react";
 import ReactPlayer from "react-player/youtube";
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../context/AuthContext";
 
-const Video = () => {
+const Video = (props) => {
+  const { allFavs, setAllFavs } = props;
+
   const location = useLocation();
   const videoInfo = location.state.video;
   const videoUrlArray = [videoInfo.url];
+  const [play, setPlay] = useState(false);
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+  const { currentUser } = useAuth();
 
-  const [play, setPlay] = useState(false);
 
   const handleMouseEnter = () => {
     setPlay(true);
@@ -20,7 +25,8 @@ const Video = () => {
   };
 
   const addToFavsFromTheatre = async (video) => {
-    console.log("check video for key", video)
+    setLoading(true);
+    console.log("check video for key", video);
     let favorites = {
       user_id: currentUser.id,
       video_id: video.id,
@@ -42,9 +48,15 @@ const Video = () => {
       .then((resp) => resp.json())
       .then((data) => {
         setAllFavs(...allFavs, data);
-      })
-  };
+      });
 
+      setLoading(false);
+      const checked = document.getElementById("favs-btn");
+      checked.classList.add("shake")
+      setTimeout(() => {
+        checked.classList.remove("shake");
+      }, 400);
+  };
 
   return (
     <div className="background-gradient">
@@ -87,9 +99,19 @@ const Video = () => {
         </div>
       </div>
       <div className="theatre-box">
-        <button className="theatre-btn" onClick={(video) => addToFavsFromTheatre(video)}>Add to Favorites</button>
+        <button
+          className="theatre-btn"
+          id="favs-btn"
+          onClick={() => addToFavsFromTheatre(videoInfo)}
+          disabled={loading}
+        >
+          Add to Favorites
+        </button>
 
-        <button className="theatre-btn" onClick={() => navigate("/VideoContainer")}>
+        <button
+          className="theatre-btn"
+          onClick={() => navigate("/VideoContainer")}
+        >
           Return Home
         </button>
       </div>

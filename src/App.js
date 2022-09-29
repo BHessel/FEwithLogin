@@ -105,7 +105,7 @@ const App = () => {
               path={"/video"}
               element={
                 <PrivateRoute>
-                  <Video />
+                  <Video allFavs={allFavs} setAllFavs={setAllFavs} />
                 </PrivateRoute>
               }
             />
@@ -118,7 +118,6 @@ const App = () => {
                 </PrivateRoute>
               }
             />
-
           </Routes>
         </div>
       </div>
