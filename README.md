@@ -38,12 +38,10 @@ If you'd like to [visit the site](https://netflixmoviematcher.herokuapp.com/), I
 
 <h3 align="center">Otherwise, keep scroling down for a detailed site preview...</h3>
 <p align="center">
-    <img src="https://media.giphy.com/media/HZmJfgID3DUXim2Oqk/giphy.gif" width="80%">
+    <img src="https://media.giphy.com/media/3orooV4drdl3T2zR55/giphy.gif" width="80%">
 </p>
 
-1) code improvement for refresh
-2) gif showing Play Movie in theatre mode, AddtoFavs, return home, search friend, compare. 
-3) Return Home AND Add to Favorites button on movie theatre page, gray box white font below lorum ipsum, big rectangle, easy
+
 4) Have image of Home page, Movie Theatre Mode, Compare mode
 
 
