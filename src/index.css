@@ -465,7 +465,6 @@ button a:focus {
   flex-direction: column;
   color: white;
   padding: 10px;
-  margin-left: 2%;
 }
 
 .flex-info-font {
@@ -702,4 +701,29 @@ li {
 80% { transform: translate(-1px, -1px) rotate(4deg);  }
 90% { transform: translate(2px, 2px)   rotate(0deg);  }
 100%{ transform: translate(1px, -2px)  rotate(-1deg); }
+}
+
+.theatre-box {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+}
+
+.theatre-btn {
+  background-color:#929293;
+  width: 45%;
+  padding: 20px;
+  color: white;
+  border-radius: 5px;
+  border: none;
+  font-size: 16px;
+  transition: .8s;
+  cursor: pointer;
+}
+
+.theatre-btn:hover {
+  background-color: #000000;
+  transition: .8s;
 }
