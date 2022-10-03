@@ -18,13 +18,13 @@ Do you and your partner waste a lot of time looking for a show to watch together
 
 Netflix Movie Matcher is the solution that gives you back your time.
 
-**Users can:**
-:white_check_mark: - Create their own accounts
-:movie_camera: - Watch Netflix show/movie trailers
-:+1: - Add/remove trailers from their personal Favorites list
-:mag_right: - Search for other users
-:couple: - Follow/unfollow other users (Twitter-style relationship)
-:tv: - Compare favorites with other users
+**Users can:**  
+:white_check_mark: - Create their own accounts  
+:movie_camera: - Watch Netflix show/movie trailers  
+:+1: - Add/remove trailers from their personal Favorites list  
+:mag_right: - Search for other users  
+:couple: - Follow/unfollow other users (Twitter-style relationship)  
+:tv: - Compare favorites with other users  
 
 ## Demo
 
