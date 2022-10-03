@@ -48,7 +48,7 @@ If you'd like to [visit the site](https://netflixmoviematcher.herokuapp.com/), I
 
 <h4>Logged in Home Page/Video Search:</h4>
 <p align="center">
-<img src="../nmm-fe/src/Images/loginHome2.png" alt="" width="90%">
+<img src="./loginHome2.png" alt="" width="90%">
 </p>
 <h4>Movie Theatre Mode:</h4>
 <p align="center">
