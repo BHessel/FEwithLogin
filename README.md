@@ -52,15 +52,15 @@ If you'd like to [visit the site](https://netflixmoviematcher.herokuapp.com/), I
 </p>
 <h4>Movie Theatre Mode:</h4>
 <p align="center">
-<img src="../nmm-fe/src/Images/theatreMode.png" alt="" width="90%">
+<img src="./theatreMode.png" alt="" width="90%">
 </p>
 <h4>Search for Other Users:</h4>
 <p align="center">
-<img src="../nmm-fe/src/Images/searchAndMatch.png" alt="" width="90%">
+<img src="./searchAndMatch.png" alt="" width="90%">
 </p>
 <h4>View all movie matches:</h4>
 <p align="center">
-<img src="../nmm-fe/src/Images/matchPage.png" alt="" width="90%">
+<img src="./matchPage.png" alt="" width="90%">
 </p>
 
 ## Technologies
