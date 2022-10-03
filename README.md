@@ -34,7 +34,7 @@ If you'd like to [visit the site](https://netflixmoviematcher.herokuapp.com/), I
 
 <div>
 
-**Username:** `netflixDemo@dev.com`
+**Username:** `netflixDemo@dev.com`  
 **Password:** `TopSecret`
 
 </div>
